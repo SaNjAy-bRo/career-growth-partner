@@ -30,23 +30,10 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
               Services
             </a>
             <a
-              href="#ai-score"
-              className="text-sm font-medium text-slate-300 hover:text-cgp-cyan transition-colors flex items-center gap-1.5"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-cgp-cyan animate-pulse" />
-              AI Score Tool
-            </a>
-            <a
               href="#transformation"
               className="text-sm font-medium text-slate-300 hover:text-cgp-cyan transition-colors"
             >
               Before & After
-            </a>
-            <a
-              href="#recruiter-insights"
-              className="text-sm font-medium text-slate-300 hover:text-cgp-cyan transition-colors"
-            >
-              Recruiter Matrix
             </a>
             <a
               href="#pricing"
@@ -98,16 +85,6 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
               className="px-4 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-cgp-surface hover:text-cgp-cyan transition-colors"
             >
               Core Services
-            </a>
-            <a
-              href="#ai-score"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-lg text-sm font-medium text-cgp-cyan bg-cgp-cyan/10 border border-cgp-cyan/20 flex items-center justify-between"
-            >
-              <span className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4" /> AI Profile Readiness Checker
-              </span>
-              <span className="text-xs bg-cgp-cyan text-cgp-bg px-2 py-0.5 rounded font-bold">Free</span>
             </a>
             <a
               href="#transformation"
