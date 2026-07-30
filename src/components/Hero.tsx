@@ -102,8 +102,8 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
           </div>
         </div>
 
-        {/* 4-Card Value Grid (Matching Reference Design) */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        {/* 4-Card Value Grid (Hidden on Mobile) */}
+        <div className="mt-16 hidden sm:grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           <div className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 transition-colors">
             <div className="w-10 h-10 rounded-xl bg-cgp-purple/15 border border-cgp-purple/30 flex items-center justify-center text-cgp-cyan">
               <Sparkles className="w-5 h-5" />
