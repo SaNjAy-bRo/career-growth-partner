@@ -78,20 +78,22 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
               <a
                 href="#ai-score"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-cgp-card/80 border border-cgp-purple/30 hover:border-cgp-cyan text-slate-200 hover:text-white font-bold text-base backdrop-blur-md hover:bg-cgp-surface transition-all flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-cgp-card border border-cgp-cyan/50 hover:border-cgp-cyan text-white font-extrabold text-base backdrop-blur-md hover:bg-cgp-surface transition-all flex items-center justify-center gap-2 group shadow-lg"
               >
                 <Sparkles className="w-4 h-4 text-cgp-cyan group-hover:rotate-12 transition-transform" />
                 <span>Test AI Readiness Score</span>
               </a>
             </div>
 
-            {/* Trust Micro-Badge */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 text-xs text-cgp-textMuted pt-1">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-cgp-cyan" /> 100% Recruiter Search Safe
+            {/* High-Contrast Trust Micro-Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-xs font-extrabold pt-2">
+              <span className="flex items-center gap-2 bg-cgp-card/95 border border-cgp-purple/50 backdrop-blur-md px-4 py-2 rounded-full text-white shadow-lg">
+                <ShieldCheck className="w-4 h-4 text-cgp-cyan shrink-0" />
+                <span>100% Recruiter Search Safe</span>
               </span>
-              <span className="flex items-center gap-1.5">
-                <TrendingUp className="w-4 h-4 text-emerald-400" /> 24-48h Delivery Turnaround
+              <span className="flex items-center gap-2 bg-cgp-card/95 border border-cgp-purple/50 backdrop-blur-md px-4 py-2 rounded-full text-white shadow-lg">
+                <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>24-48h Delivery Turnaround</span>
               </span>
             </div>
           </div>
