@@ -32,7 +32,6 @@ export default function GeminiWaveCanvas() {
       "#ec4899", // Gemini Pink/Magenta
       "#2563eb", // Royal Blue
       "#6366f1", // Indigo
-      "#06b6d4", // Cyan
     ];
 
     const palette = Array(4).fill(basePalette).flat();
@@ -55,40 +54,40 @@ export default function GeminiWaveCanvas() {
 
       constructor(waveIndex: number, totalWaves: number, height: number, width: number) {
         this.waveIndex = waveIndex;
-        this.amplitude = height * 0.05;
-        this.period = width * 0.35;
-        this.spacing = height / Math.max(totalWaves, 8);
-        this.phaseOffset = Math.random() * Math.PI * 2;
+        this.amplitude = height * 0.12; // Increased amplitude for curvier waves
+        this.period = width * 0.28; // Tighter period for more pronounced curves
+        this.spacing = height / Math.max(totalWaves, 4);
+        this.phaseOffset = (waveIndex * Math.PI) / 3;
         this.colors = [...palette];
         this.offsetColorStop = 0;
         this.offsetColorStopAccel = 0.0008;
-        this.xStep = width * 0.008;
-        this.alpha = Math.max(0.2, 0.85 - waveIndex * 0.04);
+        this.xStep = width * 0.006;
+        this.alpha = Math.max(0.3, 0.85 - waveIndex * 0.08);
       }
 
       draw(width: number, height: number) {
         if (!ctx) return;
-        this.amplitude = height * (0.03 + (mouseY / Math.max(height, 1)) * 0.03);
+        this.amplitude = height * (0.08 + (mouseY / Math.max(height, 1)) * 0.04);
 
         ctx.beginPath();
         ctx.moveTo(0, height);
         this.offsetColorStop = (this.offsetColorStop - this.offsetColorStopAccel) % 1;
 
         for (let x = 0; x <= width; x += this.xStep) {
-          const waveAmplitude = this.amplitude * (0.6 + this.waveIndex * 0.2);
-          const wavePeriod = this.period * (1 + this.waveIndex * 0.25);
-          const speed = -(1.2 + this.waveIndex * 0.15);
+          const waveAmplitude = this.amplitude * (0.9 + this.waveIndex * 0.3);
+          const wavePeriod = this.period * (1 + this.waveIndex * 0.2);
+          const speed = -(1.4 + this.waveIndex * 0.2);
 
           const heightVariation =
-            Math.sin(x * width * 0.00002 + frameCount * 0.01) * (height * 0.012) +
-            Math.sin(x * width * 0.00004 + frameCount * 0.015) * (height * 0.008);
+            Math.sin(x * width * 0.00003 + frameCount * 0.012) * (height * 0.02) +
+            Math.sin(x * width * 0.00005 + frameCount * 0.018) * (height * 0.012);
 
           const y =
             this.spacing * (this.waveIndex + 1) +
             waveAmplitude *
               Math.sin((x + frameCount * speed) * 2 * Math.PI / wavePeriod + this.phaseOffset) +
             heightVariation -
-            this.spacing;
+            this.spacing * 0.8;
 
           ctx.lineTo(x, y);
 
@@ -117,7 +116,7 @@ export default function GeminiWaveCanvas() {
 
     const init = (rectWidth: number, rectHeight: number) => {
       elements = [];
-      const numWaves = Math.min(12, Math.max(6, Math.floor(rectHeight * 0.045)));
+      const numWaves = 4; // Reduced to 4 clean, sweeping wave layers
       for (let i = 0; i < numWaves; i++) {
         elements.push(new WaveElement(i, numWaves, rectHeight, rectWidth));
       }
