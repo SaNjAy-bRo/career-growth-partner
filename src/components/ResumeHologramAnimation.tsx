@@ -84,7 +84,7 @@ export default function ResumeHologramAnimation() {
       <div className="absolute -inset-8 sm:-inset-12 rounded-full border border-cgp-purple/15 animate-reverse-spin pointer-events-none" />
 
       {/* Floating Top Left Widget: Dynamic Profile Score (Desktop Only) */}
-      <div className="hidden sm:block absolute -top-4 -left-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-purple/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1 animate-float">
+      <div className="hidden sm:block absolute -top-4 -left-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-purple/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1.5 animate-float">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Live Profile Score
         </span>
@@ -92,46 +92,47 @@ export default function ResumeHologramAnimation() {
           <span className="text-2xl font-black text-white transition-all duration-700 ease-in-out">
             {active.score}/100
           </span>
-          <span className="text-xs text-emerald-400 font-bold flex items-center">
+          <span className="text-xs text-emerald-400 font-bold flex items-center gap-0.5">
             ▲ 99%
           </span>
         </div>
-        {/* Animated Live Sparkline */}
-        <div className="w-20 h-4 border-b-2 border-emerald-400/80 rounded-b flex items-end justify-between px-1">
-          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
-          <div className="w-1.5 h-2.5 bg-emerald-400 rounded-full" />
-          <div className="w-1.5 h-3.5 bg-emerald-400 rounded-full" />
+        {/* Clean Mini Bar Chart */}
+        <div className="flex items-end gap-1.5 h-3.5 pt-1">
+          <div className="w-2 h-2 bg-emerald-400/40 rounded-t" />
+          <div className="w-2 h-2.5 bg-emerald-400/70 rounded-t" />
+          <div className="w-2 h-3.5 bg-emerald-400 rounded-t shadow-[0_0_8px_#34d399]" />
         </div>
       </div>
 
       {/* Floating Middle Right Widget: Dynamic Recruiter Views (Desktop Only) */}
-      <div className="hidden sm:block absolute top-1/3 -right-6 z-30 glass-card rounded-2xl p-3.5 border border-cgp-cyan/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
+      <div className="hidden sm:block absolute top-1/3 -right-6 z-30 glass-card rounded-2xl p-3.5 border border-cgp-cyan/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1.5">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Recruiter Views
         </span>
         <span className="text-2xl font-black text-cgp-cyan block transition-all duration-700 ease-in-out">
           +{active.views}%
         </span>
-        {/* Live Animated Bar Chart */}
-        <div className="flex items-end gap-1.5 h-5 pt-1">
-          <div className="w-2 h-2 bg-cgp-cyan/40 rounded-t animate-pulse" />
-          <div className="w-2 h-3.5 bg-cgp-cyan/60 rounded-t animate-pulse delay-100" />
-          <div className="w-2 h-5 bg-cgp-cyan rounded-t animate-pulse delay-200" />
+        {/* Clean Mini Bar Chart */}
+        <div className="flex items-end gap-1.5 h-3.5 pt-1">
+          <div className="w-2 h-2 bg-cgp-cyan/40 rounded-t" />
+          <div className="w-2 h-2.5 bg-cgp-cyan/70 rounded-t" />
+          <div className="w-2 h-3.5 bg-cgp-cyan rounded-t shadow-[0_0_8px_#38bdf8]" />
         </div>
       </div>
 
       {/* Floating Bottom Right Widget: Dynamic Interview Calls (Desktop Only) */}
-      <div className="hidden sm:block absolute -bottom-4 -right-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-pink/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
+      <div className="hidden sm:block absolute -bottom-4 -right-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-pink/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1.5">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Interview Calls
         </span>
         <span className="text-2xl font-black text-cgp-pink block transition-all duration-700 ease-in-out">
           +{active.calls}%
         </span>
-        {/* Wave Sparkline */}
-        <div className="w-24 h-4 border-b-2 border-cgp-pink flex items-end justify-between px-1">
-          <div className="w-1.5 h-1.5 bg-cgp-pink rounded-full" />
-          <div className="w-1.5 h-3 bg-cgp-pink rounded-full animate-bounce" />
+        {/* Clean Mini Bar Chart */}
+        <div className="flex items-end gap-1.5 h-3.5 pt-1">
+          <div className="w-2 h-2 bg-cgp-pink/40 rounded-t" />
+          <div className="w-2 h-2.5 bg-cgp-pink/70 rounded-t" />
+          <div className="w-2 h-3.5 bg-cgp-pink rounded-t shadow-[0_0_8px_#ec4899]" />
         </div>
       </div>
 
