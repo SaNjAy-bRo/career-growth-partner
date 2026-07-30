@@ -12,11 +12,15 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
   return (
     <section className="relative min-h-[85vh] pt-20 pb-28 sm:pb-36 flex items-center justify-center overflow-hidden bg-cgp-bg">
-      {/* Ultra-Clean Soft Faded Ambient Gemini Glow Field */}
-      <div className="aurora-soft-ambient" aria-hidden="true" />
-
       {/* Dark Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
+
+      {/* Ultra-Smooth Vector CSS Gemini Wavy Liquid Ribbon (Zero Distortion on Mobile) */}
+      <div className="gemini-liquid-ribbon-container" aria-hidden="true">
+        <div className="gemini-liquid-ribbon-1" />
+        <div className="gemini-liquid-ribbon-2" />
+        <div className="gemini-liquid-wave-line" />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">

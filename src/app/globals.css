@@ -24,34 +24,91 @@ body {
   animation: geminiShift 5s ease infinite;
 }
 
-/* Ultra-Clean Soft-Faded Ambient Gemini Glow Field (No Sharp Lines) */
-.aurora-soft-ambient {
+/* Ultra-Smooth Responsive Gemini AI Wavy Liquid Ribbon (Zero Distortion) */
+.gemini-liquid-ribbon-container {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 55%;
-  background: radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.38) 0%, rgba(56, 189, 248, 0.28) 40%, rgba(236, 72, 153, 0.18) 70%, transparent 95%);
-  filter: blur(80px);
+  height: 220px;
+  overflow: hidden;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0) 100%);
-  animation: softGlowPulse 12s ease-in-out infinite alternate;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0) 100%);
 }
 
-@keyframes softGlowPulse {
+.gemini-liquid-ribbon-1 {
+  position: absolute;
+  bottom: -40px;
+  left: -20%;
+  width: 140%;
+  height: 160px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(90deg, #38BDF8 0%, #8B5CF6 40%, #EC4899 75%, #3B82F6 100%);
+  filter: blur(28px);
+  opacity: 0.75;
+  animation: liquidRibbonMove1 8s ease-in-out infinite alternate;
+}
+
+.gemini-liquid-ribbon-2 {
+  position: absolute;
+  bottom: -60px;
+  right: -20%;
+  width: 140%;
+  height: 180px;
+  border-radius: 60% 40% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(90deg, #EC4899 0%, #38BDF8 50%, #8B5CF6 100%);
+  filter: blur(35px);
+  opacity: 0.65;
+  animation: liquidRibbonMove2 11s ease-in-out infinite alternate;
+}
+
+.gemini-liquid-wave-line {
+  position: absolute;
+  bottom: 25px;
+  left: -10%;
+  width: 120%;
+  height: 70px;
+  border-top: 3px solid rgba(56, 189, 248, 0.8);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.9));
+  animation: waveLineFloat 7s ease-in-out infinite alternate;
+}
+
+@keyframes liquidRibbonMove1 {
   0% {
-    opacity: 0.75;
-    transform: scale(1);
+    transform: translateY(0) scaleY(1) rotate(-2deg);
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.06);
+    transform: translateY(-20px) scaleY(1.15) rotate(2deg);
   }
   100% {
-    opacity: 0.8;
-    transform: scale(0.98);
+    transform: translateY(10px) scaleY(0.9) rotate(-1deg);
+  }
+}
+
+@keyframes liquidRibbonMove2 {
+  0% {
+    transform: translateY(0) scaleY(1) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-25px) scaleY(1.2) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(15px) scaleY(0.95) rotate(1deg);
+  }
+}
+
+@keyframes waveLineFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1.5deg);
+  }
+  100% {
+    transform: translateY(5px) rotate(-1deg);
   }
 }
 
