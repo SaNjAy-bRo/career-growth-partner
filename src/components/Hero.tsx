@@ -1,8 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, TrendingUp, ShieldCheck, Eye, Zap } from "lucide-react";
+import Image from "next/image";
+import {
+  Sparkles,
+  Search,
+  FileText,
+  Zap,
+  ShieldCheck,
+  TrendingUp,
+  Award,
+  Briefcase,
+  BarChart3,
+  CheckCircle2,
+  Users,
+} from "lucide-react";
 import GeminiWaveCanvas from "./GeminiWaveCanvas";
+import ResumeHologramAnimation from "./ResumeHologramAnimation";
 
 interface HeroProps {
   onOpenAuditModal: () => void;
@@ -12,24 +26,22 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
   const [activeTab, setActiveTab] = useState<"student" | "jobseeker">("student");
 
   return (
-    <section className="relative min-h-[85vh] pt-20 pb-28 sm:pb-36 flex items-center justify-center overflow-hidden bg-cgp-bg">
-      {/* Dark Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
+    <section className="relative min-h-screen pt-12 pb-24 flex flex-col justify-between overflow-hidden bg-cgp-bg text-white">
+      {/* Dark Grid Pattern Background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
 
-      {/* Interactive HTML5 Gemini Wave Canvas Animation */}
-      <GeminiWaveCanvas />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Spacious Clean Copy */}
-          <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
-            {/* Gemini AI Pill Badge - Hidden on mobile */}
-            <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cgp-card/80 border border-cgp-purple/40 text-cgp-cyan text-xs font-bold uppercase tracking-wider shadow-lg backdrop-blur-md">
+      {/* Main Hero Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-16">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Copy & CTAs */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cgp-card/90 border border-cgp-purple/40 text-cgp-cyan text-xs font-bold uppercase tracking-wider shadow-lg backdrop-blur-md">
               <Sparkles className="w-4 h-4 text-cgp-cyan animate-pulse" />
-              <span>Gemini-Class AI Personal Branding Engine</span>
+              <span>AI-Powered Personal Branding</span>
             </div>
 
-            {/* Main Headline */}
+            {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
               We Turn LinkedIn Profiles into{" "}
               <span className="gemini-text-gradient">
@@ -37,131 +49,149 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
               </span>
             </h1>
 
-            {/* Subheadline - Spacious & uncluttered */}
-            <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed text-balance">
+            {/* Subheadline */}
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed text-balance">
               Helping students & job seekers build recruiter-ready personal brands, rank top in hiring searches, and land more interview calls.
             </p>
 
             {/* Persona Switcher Buttons */}
-            <div className="inline-flex p-1 rounded-2xl bg-cgp-card/80 border border-cgp-purple/30 max-w-md mx-auto lg:mx-0 shadow-lg">
+            <div className="inline-flex p-1 rounded-2xl bg-cgp-card/90 border border-cgp-purple/30 max-w-md mx-auto lg:mx-0 shadow-lg">
               <button
                 onClick={() => setActiveTab("student")}
-                className={`py-2.5 px-5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`py-2.5 px-5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
                   activeTab === "student"
                     ? "bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink text-white shadow-md"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                For Students & Freshers
+                <Award className="w-4 h-4" />
+                <span>For Students & Freshers</span>
               </button>
               <button
                 onClick={() => setActiveTab("jobseeker")}
-                className={`py-2.5 px-5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`py-2.5 px-5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 ${
                   activeTab === "jobseeker"
                     ? "bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink text-white shadow-md"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                For Job Seekers & Switchers
+                <Briefcase className="w-4 h-4" />
+                <span>For Job Seekers & Switchers</span>
               </button>
             </div>
 
-            {/* Clear Primary CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            {/* Primary Action CTA */}
+            <div className="pt-2 space-y-3 max-w-md mx-auto lg:mx-0">
               <button
                 onClick={onOpenAuditModal}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink hover:from-sky-400 hover:to-pink-500 text-white font-extrabold text-base shadow-xl shadow-cgp-purple/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
+                className="w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink hover:from-sky-400 hover:to-pink-500 text-white font-extrabold text-base shadow-xl shadow-cgp-purple/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
               >
                 <Zap className="w-5 h-5 fill-white text-white" />
                 <span>Transform My Profile Now</span>
               </button>
 
-              <a
-                href="#ai-score"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-cgp-card border border-cgp-cyan/50 hover:border-cgp-cyan text-white font-extrabold text-base backdrop-blur-md hover:bg-cgp-surface transition-all flex items-center justify-center gap-2 group shadow-lg"
-              >
-                <Sparkles className="w-4 h-4 text-cgp-cyan group-hover:rotate-12 transition-transform" />
-                <span>Test AI Readiness Score</span>
-              </a>
-            </div>
-
-            {/* High-Contrast Trust Micro-Badges */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-xs font-extrabold pt-2">
-              <span className="flex items-center gap-2 bg-cgp-card/95 border border-cgp-purple/50 backdrop-blur-md px-4 py-2 rounded-full text-white shadow-lg">
-                <ShieldCheck className="w-4 h-4 text-cgp-cyan shrink-0" />
-                <span>100% Recruiter Search Safe</span>
-              </span>
-              <span className="flex items-center gap-2 bg-cgp-card/95 border border-cgp-purple/50 backdrop-blur-md px-4 py-2 rounded-full text-white shadow-lg">
-                <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>24-48h Delivery Turnaround</span>
-              </span>
+              <p className="text-xs text-cgp-textMuted font-medium text-center lg:text-left">
+                AI-powered. Recruiter-approved. Results driven.
+              </p>
             </div>
           </div>
 
-          {/* Right Column: Clean Uncluttered AI Dashboard Card - DESKTOP ONLY */}
-          <div className="hidden lg:block lg:col-span-5 relative">
-            <div className="relative glass-card rounded-3xl p-7 border border-cgp-purple/40 shadow-2xl overflow-hidden bg-cgp-card/90 space-y-6">
-              {/* Header Status */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-xs font-bold text-cgp-cyan font-mono uppercase">
-                    AI Profile Optimization Index
-                  </span>
-                </div>
-                <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30">
-                  RECRUITER READY
-                </span>
-              </div>
+          {/* Right Column: Pure Code 3D Animated Resume Hologram & Floating Widgets */}
+          <div className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0">
+            <ResumeHologramAnimation />
+          </div>
+        </div>
 
-              {/* Score Metric Ring */}
-              <div className="p-5 rounded-2xl bg-cgp-surface/80 border border-cgp-purple/30 flex items-center justify-between">
-                <div className="space-y-1">
-                  <span className="text-[10px] text-cgp-textMuted uppercase font-bold tracking-wider block">
-                    Target Candidate Score
-                  </span>
-                  <span className="text-3xl font-black text-emerald-400">98 / 100</span>
-                  <p className="text-xs text-cgp-cyan font-semibold">
-                    {activeTab === "student" ? "Fresher Candidate Magnet" : "High-Impact Job Seeker"}
-                  </p>
-                </div>
+        {/* 4-Card Value Grid (Matching Reference Design) */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-cgp-purple/15 border border-cgp-purple/30 flex items-center justify-center text-cgp-cyan">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-white">AI Profile Audit</h4>
+              <p className="text-xs text-cgp-textMuted mt-1">
+                Get AI insights to improve your profile
+              </p>
+            </div>
+          </div>
 
-                <div className="w-16 h-16 rounded-full bg-cgp-bg border-2 border-emerald-500/40 flex items-center justify-center font-black text-emerald-400 text-lg shadow-lg">
-                  ⚡
-                </div>
-              </div>
+          <div className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-cgp-cyan/15 border border-cgp-cyan/30 flex items-center justify-center text-cgp-cyan">
+              <Search className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-white">ATS Optimized</h4>
+              <p className="text-xs text-cgp-textMuted mt-1">
+                Rank higher in recruiter and ATS searches
+              </p>
+            </div>
+          </div>
 
-              {/* Single Floating Recruiter Alert */}
-              <div className="p-4 rounded-2xl bg-slate-950/90 border border-emerald-500/40 flex items-center gap-3.5 text-xs shadow-xl animate-float">
-                <div className="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">
-                  🔔
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-white font-bold text-xs truncate">
-                    Senior Tech Recruiter
-                  </p>
-                  <p className="text-slate-400 text-[11px] truncate">
-                    Saved your profile & requested interview
-                  </p>
-                </div>
-                <span className="text-[10px] text-emerald-400 font-mono font-bold">Just Now</span>
-              </div>
+          <div className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-cgp-pink/15 border border-cgp-pink/30 flex items-center justify-center text-cgp-pink">
+              <FileText className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-white">Content That Converts</h4>
+              <p className="text-xs text-cgp-textMuted mt-1">
+                Crafted to highlight your strengths & impact
+              </p>
+            </div>
+          </div>
 
-              {/* Bottom Quick Stats */}
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-400">
-                <span className="flex items-center gap-1.5">
-                  <Eye className="w-4 h-4 text-cgp-cyan" /> 3.8x Profile Visibility
-                </span>
-                <span className="text-emerald-400 font-bold">
-                  +85% Callback Rate
-                </span>
-              </div>
+          <div className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <Zap className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-white">More Interviews</h4>
+              <p className="text-xs text-cgp-textMuted mt-1">
+                Attract better opportunities and interview calls
+              </p>
             </div>
           </div>
         </div>
+
+        {/* Trust & Social Proof Row (Matching Reference Layout) */}
+        <div className="mt-6 glass-card rounded-2xl p-5 border border-cgp-purple/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-cgp-cyan/15 border border-cgp-cyan/30 flex items-center justify-center text-cgp-cyan shrink-0">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+              <h5 className="text-sm font-bold text-white">100% Recruiter Search Safe</h5>
+              <p className="text-xs text-cgp-textMuted">
+                We follow LinkedIn's guidelines and best practices.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-2 overflow-hidden">
+              {["👨‍💼", "👩‍💻", "👨‍🎓", "👩‍💼", "👨‍🔬"].map((avatar, idx) => (
+                <div
+                  key={idx}
+                  className="w-8 h-8 rounded-full bg-cgp-card border-2 border-cgp-purple/40 flex items-center justify-center text-xs"
+                >
+                  {avatar}
+                </div>
+              ))}
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cgp-purple to-cgp-pink flex items-center justify-center text-[10px] font-bold text-white">
+                2K+
+              </div>
+            </div>
+            <div className="text-left">
+              <h5 className="text-xs font-bold text-white">Trusted by Students & Professionals</h5>
+              <p className="text-[10px] text-cgp-textMuted">across 25+ industries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Glowing Particle Wave Canvas */}
+      <div className="relative z-10 pt-4 pb-20">
+        <GeminiWaveCanvas />
       </div>
     </section>
   );

@@ -14,113 +14,18 @@ export default function GeminiWaveCanvas() {
 
     let frameId: number;
     let frameCount = 0;
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
-    };
+    const baseColors = ["#38bdf8", "#8b5cf6", "#ec4899", "#2563eb", "#6366f1"];
 
-    window.addEventListener("mousemove", handleMouseMove);
-
-    const basePalette = [
-      "#38bdf8", // Electric Cyan
-      "#8b5cf6", // Vibrant Purple
-      "#ec4899", // Gemini Pink/Magenta
-      "#2563eb", // Royal Blue
-      "#6366f1", // Indigo
-    ];
-
-    const palette = Array(4).fill(basePalette).flat();
-
-    function clampColorStop(value: number) {
-      return Math.max(0, Math.min(1, value));
+    interface Particle {
+      x: number;
+      y: number;
+      size: number;
+      color: string;
+      speed: number;
     }
 
-    class WaveElement {
-      waveIndex: number;
-      amplitude: number;
-      period: number;
-      spacing: number;
-      phaseOffset: number;
-      colors: string[];
-      offsetColorStop: number;
-      offsetColorStopAccel: number;
-      xStep: number;
-      alpha: number;
-
-      constructor(waveIndex: number, totalWaves: number, height: number, width: number) {
-        this.waveIndex = waveIndex;
-        this.amplitude = height * 0.12; // Increased amplitude for curvier waves
-        this.period = width * 0.28; // Tighter period for more pronounced curves
-        this.spacing = height / Math.max(totalWaves, 4);
-        this.phaseOffset = (waveIndex * Math.PI) / 3;
-        this.colors = [...palette];
-        this.offsetColorStop = 0;
-        this.offsetColorStopAccel = 0.0008;
-        this.xStep = width * 0.006;
-        this.alpha = Math.max(0.3, 0.85 - waveIndex * 0.08);
-      }
-
-      draw(width: number, height: number) {
-        if (!ctx) return;
-        this.amplitude = height * (0.08 + (mouseY / Math.max(height, 1)) * 0.04);
-
-        ctx.beginPath();
-        ctx.moveTo(0, height);
-        this.offsetColorStop = (this.offsetColorStop - this.offsetColorStopAccel) % 1;
-
-        for (let x = 0; x <= width; x += this.xStep) {
-          const waveAmplitude = this.amplitude * (0.9 + this.waveIndex * 0.3);
-          const wavePeriod = this.period * (1 + this.waveIndex * 0.2);
-          const speed = -(1.4 + this.waveIndex * 0.2);
-
-          const heightVariation =
-            Math.sin(x * width * 0.00003 + frameCount * 0.012) * (height * 0.02) +
-            Math.sin(x * width * 0.00005 + frameCount * 0.018) * (height * 0.012);
-
-          const y =
-            this.spacing * (this.waveIndex + 1) +
-            waveAmplitude *
-              Math.sin((x + frameCount * speed) * 2 * Math.PI / wavePeriod + this.phaseOffset) +
-            heightVariation -
-            this.spacing * 0.8;
-
-          ctx.lineTo(x, y);
-
-          const gradient = ctx.createLinearGradient(x, y - waveAmplitude, x, y + height);
-
-          this.colors.forEach((color, i) => {
-            const baseStop = i / this.colors.length;
-            const yOffset = y * 0.0006;
-            const stop = clampColorStop(baseStop + this.offsetColorStop + yOffset);
-            const hexAlpha = Math.floor(this.alpha * 255)
-              .toString(16)
-              .padStart(2, "0");
-            gradient.addColorStop(stop, color + hexAlpha);
-          });
-
-          ctx.fillStyle = gradient;
-        }
-
-        ctx.lineTo(width, height);
-        ctx.closePath();
-        ctx.fill();
-      }
-    }
-
-    let elements: WaveElement[] = [];
-
-    const init = (rectWidth: number, rectHeight: number) => {
-      elements = [];
-      const numWaves = 4; // Reduced to 4 clean, sweeping wave layers
-      for (let i = 0; i < numWaves; i++) {
-        elements.push(new WaveElement(i, numWaves, rectHeight, rectWidth));
-      }
-    };
+    const particles: Particle[] = [];
 
     const resizeCanvas = () => {
       if (!canvas) return;
@@ -131,7 +36,19 @@ export default function GeminiWaveCanvas() {
       canvas.height = rect.height * dpr;
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      init(rect.width, rect.height);
+
+      // Generate Constellation Particle Dots
+      particles.length = 0;
+      const particleCount = Math.floor(rect.width * 0.08);
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * rect.width,
+          y: rect.height * (0.2 + Math.random() * 0.7),
+          size: Math.random() * 2 + 1,
+          color: baseColors[i % baseColors.length],
+          speed: 0.2 + Math.random() * 0.5,
+        });
+      }
     };
 
     resizeCanvas();
@@ -142,7 +59,72 @@ export default function GeminiWaveCanvas() {
       const rect = canvas.getBoundingClientRect();
       ctx.clearRect(0, 0, rect.width, rect.height);
 
-      elements.forEach((element) => element.draw(rect.width, rect.height));
+      // 1. Draw Multi-Layered Glowing Sine Waves (Matching Mockup)
+      const numWaves = 4;
+      for (let w = 0; w < numWaves; w++) {
+        ctx.beginPath();
+        const amplitude = rect.height * (0.15 + w * 0.04);
+        const period = rect.width * (0.22 + w * 0.05);
+        const speed = 0.02 + w * 0.008;
+        const phase = w * 1.5;
+
+        const strokeGradient = ctx.createLinearGradient(0, 0, rect.width, 0);
+        strokeGradient.addColorStop(0, "#38bdf8");
+        strokeGradient.addColorStop(0.35, "#8b5cf6");
+        strokeGradient.addColorStop(0.7, "#ec4899");
+        strokeGradient.addColorStop(1, "#2563eb");
+
+        ctx.strokeStyle = strokeGradient;
+        ctx.lineWidth = 3.5 - w * 0.5;
+        ctx.shadowBlur = 16 - w * 3;
+        ctx.shadowColor = w % 2 === 0 ? "#38bdf8" : "#8b5cf6";
+
+        for (let x = 0; x <= rect.width; x += 8) {
+          const y =
+            rect.height * 0.5 +
+            amplitude * Math.sin(x / period + frameCount * speed + phase) +
+            Math.sin(x * 0.01 + frameCount * 0.02) * 8;
+
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.stroke();
+      }
+
+      // Reset Shadow Blur for Particles
+      ctx.shadowBlur = 0;
+
+      // 2. Draw Glowing Constellation Particles & Connecting Threads
+      particles.forEach((p, idx) => {
+        p.x += p.speed;
+        if (p.x > rect.width) p.x = 0;
+
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Connect nearby particles with subtle glowing thread lines
+        for (let j = idx + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 75) {
+            ctx.strokeStyle = p.color;
+            ctx.globalAlpha = (1 - dist / 75) * 0.35;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+            ctx.globalAlpha = 1.0;
+          }
+        }
+      });
 
       frameCount++;
       frameId = requestAnimationFrame(animate);
@@ -151,18 +133,14 @@ export default function GeminiWaveCanvas() {
     animate();
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(frameId);
     };
   }, []);
 
   return (
-    <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-64 sm:h-80 flex items-end opacity-90">
-      <canvas
-        ref={canvasRef}
-        className="w-full h-full block"
-      />
+    <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-48 sm:h-64 flex items-end opacity-95">
+      <canvas ref={canvasRef} className="w-full h-full block" />
     </div>
   );
 }
