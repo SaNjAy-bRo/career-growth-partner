@@ -1,16 +1,16 @@
 "use client";
 
-import { Sparkles, Award, ShieldCheck, CheckCircle2, User, Cpu, BarChart3, LineChart } from "lucide-react";
+import { Sparkles, ShieldCheck, User } from "lucide-react";
 
 export default function ResumeHologramAnimation() {
   return (
-    <div className="relative w-full max-w-[440px] mx-auto select-none">
+    <div className="relative w-full max-w-[440px] mx-auto select-none pt-4 sm:pt-0">
       {/* Outer Constellation Orbit Ring (Pure CSS SVG Animation) */}
-      <div className="absolute -inset-6 rounded-full border border-cgp-cyan/20 animate-spin-slow pointer-events-none" />
-      <div className="absolute -inset-12 rounded-full border border-cgp-purple/15 animate-reverse-spin pointer-events-none" />
+      <div className="absolute -inset-4 sm:-inset-6 rounded-full border border-cgp-cyan/20 animate-spin-slow pointer-events-none" />
+      <div className="absolute -inset-8 sm:-inset-12 rounded-full border border-cgp-purple/15 animate-reverse-spin pointer-events-none" />
 
-      {/* Floating Top Left Widget: Profile Score */}
-      <div className="absolute -top-4 -left-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-purple/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1 animate-float">
+      {/* Floating Top Left Widget: Profile Score (Desktop Only) */}
+      <div className="hidden sm:block absolute -top-4 -left-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-purple/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1 animate-float">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Profile Score
         </span>
@@ -28,8 +28,8 @@ export default function ResumeHologramAnimation() {
         </div>
       </div>
 
-      {/* Middle Right Widget: Recruiter Views */}
-      <div className="absolute top-1/3 -right-6 z-30 glass-card rounded-2xl p-3.5 border border-cgp-cyan/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1 hidden sm:block">
+      {/* Middle Right Widget: Recruiter Views (Desktop Only) */}
+      <div className="hidden sm:block absolute top-1/3 -right-6 z-30 glass-card rounded-2xl p-3.5 border border-cgp-cyan/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Recruiter Views
         </span>
@@ -42,8 +42,8 @@ export default function ResumeHologramAnimation() {
         </div>
       </div>
 
-      {/* Bottom Right Widget: Interview Calls */}
-      <div className="absolute -bottom-4 -right-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-pink/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
+      {/* Bottom Right Widget: Interview Calls (Desktop Only) */}
+      <div className="hidden sm:block absolute -bottom-4 -right-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-pink/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Interview Calls
         </span>
@@ -56,31 +56,47 @@ export default function ResumeHologramAnimation() {
       </div>
 
       {/* Main Interactive 3D Animated Resume Card */}
-      <div className="relative z-10 glass-card rounded-3xl p-6 border border-cgp-cyan/40 shadow-2xl bg-cgp-card/90 space-y-5 overflow-hidden">
+      <div className="relative z-10 glass-card rounded-3xl p-5 sm:p-6 border border-cgp-cyan/40 shadow-2xl bg-cgp-card/90 space-y-5 overflow-hidden">
         {/* Card Background Hologram Beam */}
         <div className="absolute inset-0 bg-gradient-to-tr from-cgp-cyan/10 via-cgp-purple/15 to-cgp-pink/10 opacity-70 pointer-events-none" />
 
+        {/* Mobile Metric Bar (Integrated inside card header on Mobile to avoid overlapping) */}
+        <div className="sm:hidden grid grid-cols-3 gap-2 pb-3 border-b border-slate-800 text-center relative z-10">
+          <div className="p-2 rounded-xl bg-cgp-surface/80 border border-cgp-purple/30">
+            <span className="text-[9px] text-cgp-textMuted font-bold block uppercase">Score</span>
+            <span className="text-sm font-black text-emerald-400">98/100</span>
+          </div>
+          <div className="p-2 rounded-xl bg-cgp-surface/80 border border-cgp-cyan/30">
+            <span className="text-[9px] text-cgp-textMuted font-bold block uppercase">Views</span>
+            <span className="text-sm font-black text-cgp-cyan">+312%</span>
+          </div>
+          <div className="p-2 rounded-xl bg-cgp-surface/80 border border-cgp-pink/30">
+            <span className="text-[9px] text-cgp-textMuted font-bold block uppercase font-mono">Calls</span>
+            <span className="text-sm font-black text-cgp-pink">+210%</span>
+          </div>
+        </div>
+
         {/* Top Header: Candidate Avatar & Info */}
-        <div className="flex items-center gap-4 relative z-10 pb-4 border-b border-slate-800">
-          <div className="relative w-14 h-14 rounded-2xl bg-cgp-surface border-2 border-cgp-cyan/50 flex items-center justify-center p-0.5 shadow-lg shadow-cgp-cyan/20">
+        <div className="flex items-center gap-3.5 relative z-10 pb-4 border-b border-slate-800">
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-cgp-surface border-2 border-cgp-cyan/50 flex items-center justify-center p-0.5 shadow-lg shadow-cgp-cyan/20 shrink-0">
             <div className="w-full h-full rounded-xl bg-cgp-card flex items-center justify-center text-cgp-cyan">
-              <User className="w-7 h-7" />
+              <User className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
-            <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+            <span className="absolute -top-1 -right-1 flex h-3 w-3 sm:h-3.5 sm:w-3.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-emerald-500"></span>
             </span>
           </div>
 
-          <div className="space-y-0.5">
-            <div className="flex items-center gap-2">
-              <h4 className="text-base font-extrabold text-white">Alex Vance</h4>
-              <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+          <div className="space-y-0.5 min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h4 className="text-sm sm:text-base font-extrabold text-white truncate">Alex Vance</h4>
+              <span className="px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                 VERIFIED BRAND
               </span>
             </div>
-            <p className="text-xs font-bold text-cgp-cyan">Senior Tech Specialist & Leader</p>
-            <p className="text-[10px] text-cgp-textMuted">Optimized Candidate Profile</p>
+            <p className="text-xs font-bold text-cgp-cyan truncate">Senior Tech Specialist & Leader</p>
+            <p className="text-[10px] text-cgp-textMuted truncate">Optimized Candidate Profile</p>
           </div>
         </div>
 
@@ -118,7 +134,7 @@ export default function ResumeHologramAnimation() {
         </div>
 
         {/* Industry Skill Tags */}
-        <div className="pt-2 flex flex-wrap gap-1.5 relative z-10">
+        <div className="pt-1 flex flex-wrap gap-1.5 relative z-10">
           {["#ExecutiveBranding", "#ATS_Keywords", "#HeadlineSEO", "#ImpactMetrics"].map((tag, idx) => (
             <span
               key={idx}
