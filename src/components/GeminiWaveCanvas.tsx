@@ -57,9 +57,10 @@ export default function GeminiWaveCanvas() {
       const rect = canvas.getBoundingClientRect();
       ctx.clearRect(0, 0, rect.width, rect.height);
 
-      // 1. Draw Sweeping 3D Fiber Ribbon Strand Bundle (Guaranteed Visible Curve)
+      // 1. Draw Sweeping 3D Fiber Ribbon Strand Bundle (Centered in Background)
       const totalStrands = 26;
-      const centerY = rect.height - Math.min(rect.height * 0.45, 140);
+      // Center wave vertically through middle background of section
+      const centerY = rect.height * 0.45;
 
       for (let s = 0; s < totalStrands; s++) {
         const strandRatio = s / totalStrands;
@@ -86,7 +87,7 @@ export default function GeminiWaveCanvas() {
 
         for (let x = 0; x <= rect.width; x += 5) {
           const wave1 = Math.sin(x * 0.004 + frameCount * 0.014 + offset * 0.015) * 45;
-          const wave2 = Math.cos(x * 0.008 + frameCount * 0.02) * 18;
+          const wave2 = Math.cos(x * 0.007 + frameCount * 0.02) * 18;
           const y = centerY + wave1 + wave2 + offset;
 
           if (x === 0) {
@@ -131,7 +132,7 @@ export default function GeminiWaveCanvas() {
   }, []);
 
   return (
-    <div className="w-full h-full pointer-events-none overflow-hidden flex items-end opacity-95">
+    <div className="w-full h-full pointer-events-none overflow-hidden flex items-center justify-center opacity-95">
       <canvas ref={canvasRef} className="w-full h-full block" />
     </div>
   );
