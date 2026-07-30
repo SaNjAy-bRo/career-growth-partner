@@ -12,11 +12,14 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
   return (
     <section className="relative min-h-[85vh] py-20 sm:py-28 flex items-center justify-center overflow-hidden bg-cgp-bg">
-      {/* Premium Animated Gemini Aurora Mesh Background (No static image) */}
-      <div className="aurora-bg-mesh" aria-hidden="true" />
+      {/* High-Visibility Animated Wavy Gemini Aurora Waves */}
+      <div className="gemini-aurora-wrapper" aria-hidden="true">
+        <div className="gemini-aurora-wave" />
+        <div className="gemini-aurora-wave-2" />
+      </div>
 
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
