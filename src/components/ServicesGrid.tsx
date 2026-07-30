@@ -7,7 +7,6 @@ import {
   UserCheck,
   Award,
   ArrowUpRight,
-  Sparkles,
   CheckCircle2,
 } from "lucide-react";
 
@@ -33,11 +32,11 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
       title: "Career Development Coaching",
       subtitle: "Strategic Guidance & Salary Acceleration",
       description:
-        "1-on-1 personalized career roadmap sessions. We help freshers and experienced professionals identify high-demand skill gaps, position for promotions, and negotiate top-tier compensation.",
+        "Personalized 1-on-1 career roadmap sessions to identify high-demand skill gaps and negotiate top compensation.",
       features: [
         "1-on-1 Strategic Career Assessment",
         "Target Role & Industry Roadmap",
-        "Offer & Salary Negotiation Playbook",
+        "Salary Negotiation Playbook",
       ],
       color: "from-cgp-cyan via-cgp-blue to-cgp-purple",
     },
@@ -47,10 +46,10 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
       title: "ATS Resume Writing",
       subtitle: "High-Converting ATS Formats",
       description:
-        "Custom ATS-optimized resumes crafted to bypass automated recruiter screening filters and land directly on hiring manager desks with quantified achievement metrics.",
+        "Custom ATS-optimized resumes engineered to pass automated ATS filters and land directly on hiring manager desks.",
       features: [
         "ATS Keyword & Schema Parsing",
-        "Executive & Fresher Role Customization",
+        "Executive & Fresher Role Formatting",
         "Editable Word & PDF Deliverables",
       ],
       color: "from-cgp-purple via-cgp-pink to-cgp-blue",
@@ -61,11 +60,11 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
       title: "Interview Preparation",
       subtitle: "Mock Interviews & Pitch Mastery",
       description:
-        "Master high-stakes technical & behavioral interview rounds. Practice with industry mentors, refine your elevator pitch, and answer STAR-method questions with bulletproof confidence.",
+        "Master technical and HR rounds with mock interviews, elevator pitch coaching, and STAR-method answer strategies.",
       features: [
         "Mock Technical & HR Interviews",
         "STAR Method Answer Structuring",
-        "Confidence & Elevator Pitch Coaching",
+        "Elevator Pitch & Confidence Coaching",
       ],
       color: "from-cgp-cyan to-cgp-indigo",
     },
@@ -75,11 +74,11 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
       title: "LinkedIn Brand Consulting",
       subtitle: "Recruiter Magnet Optimization",
       description:
-        "Transform your LinkedIn profile into an automated inbound lead engine. We optimize your headline, about section, featured media, and algorithm search index.",
+        "Transform your LinkedIn profile into an automated recruiter magnet with optimized headlines, summary hooks, and search keywords.",
       features: [
         "Search Keyword & Index Optimization",
-        "Executive About Section Storytelling",
-        "Inbound Recruiter Outreach Hook",
+        "Executive About Section Storywriting",
+        "Inbound Recruiter Outreach Hooks",
       ],
       color: "from-cgp-pink to-purple-600",
     },
@@ -91,18 +90,14 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
       : services.filter((s) => s.category === selectedTag);
 
   return (
-    <section id="services" className="py-24 bg-cgp-bg text-white relative overflow-hidden">
+    <section id="services" className="py-20 bg-cgp-bg text-white relative overflow-hidden">
       {/* Background Accent Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-cgp-purple/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cgp-cyan/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
-        {/* Section Header */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cgp-card border border-cgp-purple/30 text-cgp-cyan text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 text-cgp-cyan" />
-            <span>Comprehensive Career Services</span>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+        {/* Section Header (No repetitive pill badge) */}
+        <div className="text-center space-y-3 max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
             Services <span className="gemini-text-gradient">Provided</span>
           </h2>
@@ -110,8 +105,8 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
             End-to-end personal branding and career acceleration solutions tailored for students, freshers, and job switchers worldwide.
           </p>
 
-          {/* Filter Badges matching screenshot */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+          {/* Filter Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
             {serviceCategories.map((category, idx) => (
               <button
                 key={idx}
@@ -156,13 +151,13 @@ export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
                     </p>
                   </div>
 
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {service.description}
                   </p>
 
                   <div className="space-y-2 pt-2 border-t border-slate-800">
                     {service.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-200">
+                      <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-200 font-medium">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                         <span>{feat}</span>
                       </div>

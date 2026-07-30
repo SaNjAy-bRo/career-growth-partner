@@ -38,8 +38,8 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       {/* Main Hero Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Copy & CTAs */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          {/* Left Column: Copy & CTAs with Page Load Entrance Animation */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left animate-in fade-in slide-in-from-bottom-8 duration-700">
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
               We Turn LinkedIn Profiles into{" "}
@@ -95,8 +95,8 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Column: Pure Code 3D Animated Resume Hologram & Floating Widgets */}
-          <div className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0">
+          {/* Right Column: Pure Code 3D Animated Resume Hologram with Entrance Animation */}
+          <div className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0 animate-in fade-in zoom-in-95 duration-1000 delay-200">
             <ResumeHologramAnimation />
           </div>
         </div>

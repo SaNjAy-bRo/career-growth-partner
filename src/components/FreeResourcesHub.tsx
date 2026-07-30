@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, Sparkles, FileText, CheckCircle2, ArrowRight, ShieldCheck, Gift } from "lucide-react";
+import { Download, Sparkles, FileText, Gift } from "lucide-react";
 
 interface FreeResourcesHubProps {
   onOpenAuditModal: () => void;
@@ -32,7 +32,7 @@ export default function FreeResourcesHub({ onOpenAuditModal }: FreeResourcesHubP
     {
       id: "salary-script",
       title: "Salary Negotiation Email & Verbal Scripts",
-      description: "Word-for-word scripts to negotiate higher base pay, sign-on bonuses, and equity compensation without risking job offers.",
+      description: "Word-for-word scripts to negotiate higher base pay, sign-on bonuses, and equity compensation without risking offers.",
       badge: "NEGOTIATION PLAYBOOK",
       icon: Gift,
       format: "PDF Checklist",
@@ -48,19 +48,14 @@ export default function FreeResourcesHub({ onOpenAuditModal }: FreeResourcesHubP
   };
 
   return (
-    <section id="free-resources" className="py-24 bg-cgp-bg text-white relative overflow-hidden">
+    <section id="free-resources" className="py-20 bg-cgp-bg text-white relative overflow-hidden">
       {/* Ambient Glow Effects */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-cgp-cyan/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cgp-purple/10 rounded-full blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cgp-card border border-cgp-cyan/30 text-cgp-cyan text-xs font-bold uppercase tracking-wider">
-            <Gift className="w-4 h-4 text-cgp-cyan" />
-            <span>Free Career Toolkits & Downloads</span>
-          </div>
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+        {/* Section Header (No repetitive pill badge) */}
+        <div className="text-center max-w-3xl mx-auto space-y-3">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             Some Free <span className="gemini-text-gradient">Resources & Toolkits</span>
           </h2>
@@ -77,12 +72,12 @@ export default function FreeResourcesHub({ onOpenAuditModal }: FreeResourcesHubP
             return (
               <div
                 key={res.id}
-                className="glass-card rounded-3xl p-6 border border-cgp-purple/30 hover:border-cgp-cyan/50 transition-all duration-300 flex flex-col justify-between group bg-cgp-card/90 space-y-6"
+                className="glass-card rounded-3xl p-6 border border-cgp-purple/30 hover:border-cgp-cyan/50 transition-all duration-300 flex flex-col justify-between group bg-cgp-card/90 space-y-5"
               >
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-cgp-surface border border-cgp-purple/30 flex items-center justify-center text-cgp-cyan group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-11 h-11 rounded-2xl bg-cgp-surface border border-cgp-purple/30 flex items-center justify-center text-cgp-cyan group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30">
                       {res.badge}
@@ -105,7 +100,7 @@ export default function FreeResourcesHub({ onOpenAuditModal }: FreeResourcesHubP
 
                 <button
                   onClick={() => handleDownload(res.title)}
-                  className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink hover:from-sky-400 hover:to-pink-500 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-cgp-purple/20 hover:scale-[1.02] active:scale-95 transition-all"
+                  className="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink hover:from-sky-400 hover:to-pink-500 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-cgp-purple/20 hover:scale-[1.02] active:scale-95 transition-all"
                 >
                   <Download className="w-4 h-4" />
                   <span>

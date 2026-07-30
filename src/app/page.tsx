@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProblemVsSolution from "@/components/ProblemVsSolution";
 import ServicesGrid from "@/components/ServicesGrid";
+import ProblemVsSolution from "@/components/ProblemVsSolution";
 import RecruiterScanMatrix from "@/components/RecruiterScanMatrix";
 import PackagesSection from "@/components/PackagesSection";
 import Testimonials from "@/components/Testimonials";
@@ -33,22 +33,22 @@ export default function Home() {
       {/* 2. Hero Section */}
       <Hero onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 3. We Show: Problem vs Solution Transformation */}
-      <ProblemVsSolution />
-
-      {/* 4. Services Provided (Career Coaching, Resume Writing, Interview Prep, Brand Consulting) */}
+      {/* 3. Services Provided (Next to Hero) */}
       <ServicesGrid onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 5. Hidden Hiring Filter: 6-Second Recruiter Scan Matrix */}
+      {/* 4. We Show: Problem vs Solution Transformation */}
+      <ProblemVsSolution />
+
+      {/* 5. Hidden Hiring Filter: Recruiter Scan Matrix */}
       <RecruiterScanMatrix />
 
       {/* 6. Service Packages & Pricing */}
       <PackagesSection onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 7. Success Stories (Testimonials & Outcomes) */}
+      {/* 7. Success Stories (Testimonials) */}
       <Testimonials />
 
-      {/* 8. Some Free Resources (Downloadable ATS Templates & Salary Negotiation Guides) */}
+      {/* 8. Free Resources & Toolkits */}
       <FreeResourcesHub onOpenAuditModal={handleOpenAuditModal} />
 
       {/* 9. Interactive AI Score Readiness Calculator */}
