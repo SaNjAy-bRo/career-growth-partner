@@ -12,11 +12,14 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
   return (
     <section className="relative min-h-[85vh] pt-20 pb-28 sm:pb-36 flex items-center justify-center overflow-hidden bg-cgp-bg">
+      {/* 50% Illuminated Ambient Shadow Aura */}
+      <div className="aurora-50-shadow" aria-hidden="true" />
+
       {/* Dark Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
 
-      {/* SVG Filled Glowing Wavy Aurora Wave - Matching Red Marked Area at Bottom */}
-      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-52 sm:h-72 flex items-end opacity-95">
+      {/* Faded Edges SVG Glowing Wavy Aurora Wave */}
+      <div className="aurora-faded-wave-container opacity-95">
         <svg
           className="w-full h-full text-transparent"
           viewBox="0 0 1440 320"
@@ -38,7 +41,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </linearGradient>
 
             <filter id="auroraWaveGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="14" result="blur" />
+              <feGaussianBlur stdDeviation="16" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
@@ -51,7 +54,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             filter="url(#auroraWaveGlow)"
           />
 
-          {/* Primary Glowing Wavy Wave Shape Fill - Exact Marked Area Filled */}
+          {/* Primary Glowing Wavy Wave Shape Fill with Fading Edge */}
           <path
             d="M0,200 C320,100 640,270 960,140 C1280,240 1440,150 1440,320 L1440,320 L0,320 Z"
             fill="url(#auroraWavyFill1)"
@@ -59,13 +62,14 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             className="animate-gemini-wave"
           />
 
-          {/* Top Edge Glowing Contour Line */}
+          {/* Top Edge Glowing Faded Contour Line */}
           <path
             d="M0,200 C320,100 640,270 960,140 C1280,240 1440,150 1440,150"
             stroke="url(#auroraWavyFill1)"
             strokeWidth="5"
             fill="none"
             strokeLinecap="round"
+            className="opacity-90"
           />
         </svg>
       </div>
