@@ -26,7 +26,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
   const [activeTab, setActiveTab] = useState<"student" | "jobseeker">("student");
 
   return (
-    <section className="relative min-h-screen pt-12 pb-24 flex flex-col justify-between overflow-hidden bg-cgp-bg text-white">
+    <section className="relative min-h-[82vh] pt-6 pb-8 flex flex-col justify-between overflow-hidden bg-cgp-bg text-white">
       {/* Dark Grid Pattern Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
 
@@ -36,7 +36,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       </div>
 
       {/* Main Hero Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Copy & CTAs */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -189,7 +189,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       </div>
 
       {/* Desktop Bottom Wave Canvas Layer */}
-      <div className="hidden sm:block relative z-10 pt-4 pb-20 h-60 opacity-95">
+      <div className="hidden sm:block relative z-10 -mt-10 h-52 sm:h-60 opacity-95 pointer-events-none">
         <GeminiWaveCanvas />
       </div>
     </section>

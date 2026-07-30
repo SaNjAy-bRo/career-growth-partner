@@ -59,8 +59,8 @@ export default function GeminiWaveCanvas() {
 
       // 1. Draw Sweeping 3D Fiber Ribbon Strand Bundle (Centered in Background)
       const totalStrands = 26;
-      // Center wave vertically through middle background of section
-      const centerY = rect.height * 0.45;
+      // Center wave elevated in background for instant initial load visibility
+      const centerY = rect.height * 0.35;
 
       for (let s = 0; s < totalStrands; s++) {
         const strandRatio = s / totalStrands;
