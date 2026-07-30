@@ -23,20 +23,22 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
   return (
     <section className="relative min-h-[90vh] pt-12 pb-20 flex items-center justify-center overflow-hidden bg-hero-pattern">
-      {/* High-Tech AI Generated Background Image Overlay - Reduced Overlay */}
+      {/* High-Tech AI Generated Background Image Overlay */}
       <div
-        className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-45 mix-blend-screen pointer-events-none"
+        className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-40 mix-blend-screen pointer-events-none z-0"
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-cgp-bg/30 via-transparent to-cgp-bg pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cgp-bg/20 via-transparent to-cgp-bg pointer-events-none z-0" />
 
-      {/* Background Gemini AI Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-cgp-purple/20 rounded-full blur-[150px] pointer-events-none animate-aurora" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cgp-pink/15 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-cgp-cyan/20 rounded-full blur-[110px] pointer-events-none" />
+      {/* Animated Liquid Gemini Illumination Field */}
+      <div className="gemini-illumination-container">
+        <div className="gemini-illumination-blob-1" />
+        <div className="gemini-illumination-blob-2" />
+        <div className="gemini-illumination-blob-3" />
+      </div>
 
       {/* Grid Pattern Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">

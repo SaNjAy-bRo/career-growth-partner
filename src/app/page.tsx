@@ -8,8 +8,6 @@ import ProblemVsSolution from "@/components/ProblemVsSolution";
 import AiProfileAuditTool from "@/components/AiProfileAuditTool";
 import ServicesGrid from "@/components/ServicesGrid";
 import BeforeAfterShowcase from "@/components/BeforeAfterShowcase";
-import RecruiterScanMatrix from "@/components/RecruiterScanMatrix";
-import HeadlineGeneratorTeaser from "@/components/HeadlineGeneratorTeaser";
 import PackagesSection from "@/components/PackagesSection";
 import Testimonials from "@/components/Testimonials";
 import FaqSection from "@/components/FaqSection";
@@ -32,7 +30,7 @@ export default function Home() {
       {/* Top Header Navigation */}
       <Navbar onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* Hero Section */}
+      {/* Hero Section with Gemini Illuminations */}
       <Hero onOpenAuditModal={handleOpenAuditModal} />
 
       {/* Stats & Trust Banner */}
@@ -49,12 +47,6 @@ export default function Home() {
 
       {/* Before vs After Profile Transformation Showcase */}
       <BeforeAfterShowcase />
-
-      {/* 6-Second Recruiter Audit Matrix */}
-      <RecruiterScanMatrix />
-
-      {/* AI Headline Generator Interactive Teaser */}
-      <HeadlineGeneratorTeaser onOpenAuditModal={handleOpenAuditModal} />
 
       {/* Service Packages & Pricing */}
       <PackagesSection onOpenAuditModal={handleOpenAuditModal} />
