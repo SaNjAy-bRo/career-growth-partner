@@ -24,61 +24,34 @@ body {
   animation: geminiShift 5s ease infinite;
 }
 
-/* 50% Illuminated Ambient Shadow Aura behind Hero Bottom */
-.aurora-50-shadow {
+/* Ultra-Clean Soft-Faded Ambient Gemini Glow Field (No Sharp Lines) */
+.aurora-soft-ambient {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 50%;
-  background: radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.45) 0%, rgba(56, 189, 248, 0.35) 40%, rgba(236, 72, 153, 0.25) 65%, transparent 95%);
-  filter: blur(55px);
+  height: 55%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.38) 0%, rgba(56, 189, 248, 0.28) 40%, rgba(236, 72, 153, 0.18) 70%, transparent 95%);
+  filter: blur(80px);
   pointer-events: none;
   z-index: 0;
-  animation: auraPulseSlow 10s ease-in-out infinite alternate;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0) 100%);
+  animation: softGlowPulse 12s ease-in-out infinite alternate;
 }
 
-@keyframes auraPulseSlow {
+@keyframes softGlowPulse {
   0% {
     opacity: 0.75;
     transform: scale(1);
   }
   50% {
     opacity: 0.95;
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
   100% {
     opacity: 0.8;
     transform: scale(0.98);
-  }
-}
-
-/* Fading Edges SVG Wave Container */
-.aurora-faded-wave-container {
-  position: absolute;
-  inset-x: 0;
-  bottom: 0;
-  height: 55%;
-  pointer-events: none;
-  z-index: 0;
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0) 100%);
-}
-
-/* Animated Gemini Glowing Wave Ribbon */
-.animate-gemini-wave {
-  animation: geminiWaveFlow 8s ease-in-out infinite alternate;
-}
-
-@keyframes geminiWaveFlow {
-  0% {
-    transform: translateY(0px) scaleY(1);
-  }
-  50% {
-    transform: translateY(-20px) scaleY(1.1);
-  }
-  100% {
-    transform: translateY(10px) scaleY(0.95);
   }
 }
 
