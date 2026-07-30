@@ -11,66 +11,64 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
   const [activeTab, setActiveTab] = useState<"student" | "jobseeker">("student");
 
   return (
-    <section className="relative min-h-[85vh] py-20 sm:py-28 flex items-center justify-center overflow-hidden bg-cgp-bg">
-      {/* Seamless Full-Height Gemini AI Aurora Field */}
-      <div className="aurora-seamless-wrapper" aria-hidden="true">
-        <div className="aurora-seamless-blob-1" />
-        <div className="aurora-seamless-blob-2" />
-      </div>
+    <section className="relative min-h-[85vh] pt-20 pb-28 sm:pb-36 flex items-center justify-center overflow-hidden bg-cgp-bg">
+      {/* Dark Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
 
-      {/* Illuminated Gemini Glowing Wave Ribbon - Matching Marked Wave Line */}
-      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-80 flex items-end opacity-90">
+      {/* SVG Filled Glowing Wavy Aurora Wave - Matching Red Marked Area at Bottom */}
+      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-52 sm:h-72 flex items-end opacity-95">
         <svg
           className="w-full h-full text-transparent"
-          viewBox="0 0 1440 360"
+          viewBox="0 0 1440 320"
           preserveAspectRatio="none"
-          fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient id="geminiWaveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.9" />
-              <stop offset="35%" stopColor="#8B5CF6" stopOpacity="0.95" />
-              <stop offset="70%" stopColor="#EC4899" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#2563EB" stopOpacity="0.85" />
+            <linearGradient id="auroraWavyFill1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.85" />
+              <stop offset="35%" stopColor="#8B5CF6" stopOpacity="0.9" />
+              <stop offset="70%" stopColor="#EC4899" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#2563EB" stopOpacity="0.8" />
             </linearGradient>
 
-            <linearGradient id="geminiWaveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#EC4899" stopOpacity="0.5" />
-              <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.6" />
+            <linearGradient id="auroraWavyFill2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#EC4899" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.45" />
             </linearGradient>
 
-            <filter id="ribbonGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="10" result="blur" />
+            <filter id="auroraWaveGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="14" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
 
-          {/* Secondary Soft Glow Wave Ribbon */}
+          {/* Secondary Soft Glow Wavy Wave Shape Fill */}
           <path
-            d="M-50,260 C200,140 440,320 680,180 C920,50 1180,300 1500,160"
-            stroke="url(#geminiWaveGradient2)"
-            strokeWidth="12"
-            strokeLinecap="round"
-            className="animate-pulse opacity-70"
-            filter="url(#ribbonGlow)"
+            d="M0,160 C320,280 640,110 960,250 C1280,120 1440,200 1440,320 L1440,320 L0,320 Z"
+            fill="url(#auroraWavyFill2)"
+            className="animate-pulse opacity-75"
+            filter="url(#auroraWaveGlow)"
           />
 
-          {/* Primary Crisp Glowing Wavy Ribbon - Sine Wave Line */}
+          {/* Primary Glowing Wavy Wave Shape Fill - Exact Marked Area Filled */}
           <path
-            d="M-50,280 C180,160 420,340 660,200 C900,60 1140,320 1500,180"
-            stroke="url(#geminiWaveGradient1)"
-            strokeWidth="6"
-            strokeLinecap="round"
-            filter="url(#ribbonGlow)"
+            d="M0,200 C320,100 640,270 960,140 C1280,240 1440,150 1440,320 L1440,320 L0,320 Z"
+            fill="url(#auroraWavyFill1)"
+            filter="url(#auroraWaveGlow)"
             className="animate-gemini-wave"
+          />
+
+          {/* Top Edge Glowing Contour Line */}
+          <path
+            d="M0,200 C320,100 640,270 960,140 C1280,240 1440,150 1440,150"
+            stroke="url(#auroraWavyFill1)"
+            strokeWidth="5"
+            fill="none"
+            strokeLinecap="round"
           />
         </svg>
       </div>
-
-      {/* Dark Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
