@@ -30,6 +30,11 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       {/* Dark Grid Pattern Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
 
+      {/* Mobile Background Canvas Wave (Initial Page Load Active) */}
+      <div className="sm:hidden absolute inset-0 z-0 pointer-events-none opacity-85 h-full overflow-hidden">
+        <GeminiWaveCanvas />
+      </div>
+
       {/* Main Hero Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 pb-16">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -183,8 +188,8 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
         </div>
       </div>
 
-      {/* Mobile Background Wave & Desktop Bottom Wave Canvas */}
-      <div className="absolute inset-0 z-0 opacity-80 pointer-events-none sm:relative sm:z-10 sm:pt-4 sm:pb-20 sm:opacity-95">
+      {/* Desktop Bottom Wave Canvas Layer */}
+      <div className="hidden sm:block relative z-10 pt-4 pb-20 h-60 opacity-95">
         <GeminiWaveCanvas />
       </div>
     </section>

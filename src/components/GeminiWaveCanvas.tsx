@@ -37,7 +37,7 @@ export default function GeminiWaveCanvas() {
 
       // Generate Ambient Wave Dust Particles
       sparkles.length = 0;
-      const sparkleCount = Math.floor(rect.width * 0.06);
+      const sparkleCount = Math.floor(rect.width * 0.05);
       for (let i = 0; i < sparkleCount; i++) {
         sparkles.push({
           x: Math.random() * rect.width,
@@ -57,37 +57,37 @@ export default function GeminiWaveCanvas() {
       const rect = canvas.getBoundingClientRect();
       ctx.clearRect(0, 0, rect.width, rect.height);
 
-      // 1. Draw Sweeping 3D Fiber Ribbon Strand Bundle (Matching Exact Image)
+      // 1. Draw Sweeping 3D Fiber Ribbon Strand Bundle (Guaranteed Visible Curve)
       const totalStrands = 26;
+      const centerY = rect.height - Math.min(rect.height * 0.45, 140);
+
       for (let s = 0; s < totalStrands; s++) {
         const strandRatio = s / totalStrands;
-        const offset = (s - totalStrands / 2) * 2.8;
+        const offset = (s - totalStrands / 2) * 2.6;
 
         ctx.beginPath();
-        ctx.lineWidth = s % 4 === 0 ? 2.0 : 1.1;
+        ctx.lineWidth = s % 4 === 0 ? 2.2 : 1.2;
 
         const gradient = ctx.createLinearGradient(0, 0, rect.width, 0);
-        gradient.addColorStop(0, "rgba(56, 189, 248, 0.9)");   // Electric Cyan
+        gradient.addColorStop(0, "rgba(56, 189, 248, 0.95)");   // Electric Cyan
         gradient.addColorStop(0.3, "rgba(139, 92, 246, 0.95)"); // Deep Violet
         gradient.addColorStop(0.65, "rgba(236, 72, 153, 0.9)"); // Magenta
-        gradient.addColorStop(1, "rgba(37, 99, 235, 0.85)");   // Royal Blue
+        gradient.addColorStop(1, "rgba(37, 99, 235, 0.9)");    // Royal Blue
 
         ctx.strokeStyle = gradient;
-        ctx.globalAlpha = Math.max(0.15, 0.9 - Math.abs(strandRatio - 0.5) * 1.3);
+        ctx.globalAlpha = Math.max(0.2, 0.95 - Math.abs(strandRatio - 0.5) * 1.2);
 
-        if (s % 6 === 0) {
-          ctx.shadowBlur = 12;
+        if (s % 5 === 0) {
+          ctx.shadowBlur = 14;
           ctx.shadowColor = "#38bdf8";
         } else {
           ctx.shadowBlur = 0;
         }
 
-        for (let x = 0; x <= rect.width; x += 6) {
-          const wave1 =
-            Math.sin(x * 0.0035 + frameCount * 0.012 + offset * 0.015) * (rect.height * 0.3);
-          const wave2 =
-            Math.cos(x * 0.007 + frameCount * 0.018) * (rect.height * 0.09);
-          const y = rect.height * 0.55 + wave1 + wave2 + offset;
+        for (let x = 0; x <= rect.width; x += 5) {
+          const wave1 = Math.sin(x * 0.004 + frameCount * 0.014 + offset * 0.015) * 45;
+          const wave2 = Math.cos(x * 0.008 + frameCount * 0.02) * 18;
+          const y = centerY + wave1 + wave2 + offset;
 
           if (x === 0) {
             ctx.moveTo(x, y);
@@ -131,7 +131,7 @@ export default function GeminiWaveCanvas() {
   }, []);
 
   return (
-    <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-44 sm:h-60 flex items-end opacity-95">
+    <div className="w-full h-full pointer-events-none overflow-hidden flex items-end opacity-95">
       <canvas ref={canvasRef} className="w-full h-full block" />
     </div>
   );
