@@ -12,10 +12,10 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
   return (
     <section className="relative min-h-[85vh] py-20 sm:py-28 flex items-center justify-center overflow-hidden bg-cgp-bg">
-      {/* Bottom-Anchored Wavy Glowing Aurora Field */}
-      <div className="aurora-bottom-wrapper" aria-hidden="true">
-        <div className="aurora-bottom-wave-1" />
-        <div className="aurora-bottom-wave-2" />
+      {/* Seamless Full-Height Gemini AI Aurora Field */}
+      <div className="aurora-seamless-wrapper" aria-hidden="true">
+        <div className="aurora-seamless-blob-1" />
+        <div className="aurora-seamless-blob-2" />
       </div>
 
       {/* Illuminated Gemini Glowing Wave Ribbon - Matching Marked Wave Line */}
