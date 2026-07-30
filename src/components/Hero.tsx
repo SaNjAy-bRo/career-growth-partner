@@ -18,6 +18,57 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
         <div className="aurora-layer-2" />
       </div>
 
+      {/* Illuminated Gemini Glowing Wave Ribbon - Matching Marked Wave Line */}
+      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden z-0 h-80 flex items-end opacity-90">
+        <svg
+          className="w-full h-full text-transparent"
+          viewBox="0 0 1440 360"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="geminiWaveGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.9" />
+              <stop offset="35%" stopColor="#8B5CF6" stopOpacity="0.95" />
+              <stop offset="70%" stopColor="#EC4899" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#2563EB" stopOpacity="0.85" />
+            </linearGradient>
+
+            <linearGradient id="geminiWaveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#EC4899" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.6" />
+            </linearGradient>
+
+            <filter id="ribbonGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="10" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Secondary Soft Glow Wave Ribbon */}
+          <path
+            d="M-50,260 C200,140 440,320 680,180 C920,50 1180,300 1500,160"
+            stroke="url(#geminiWaveGradient2)"
+            strokeWidth="12"
+            strokeLinecap="round"
+            className="animate-pulse opacity-70"
+            filter="url(#ribbonGlow)"
+          />
+
+          {/* Primary Crisp Glowing Wavy Ribbon - Sine Wave Line */}
+          <path
+            d="M-50,280 C180,160 420,340 660,200 C900,60 1140,320 1500,180"
+            stroke="url(#geminiWaveGradient1)"
+            strokeWidth="6"
+            strokeLinecap="round"
+            filter="url(#ribbonGlow)"
+            className="animate-gemini-wave"
+          />
+        </svg>
+      </div>
+
       {/* Dark Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
 
