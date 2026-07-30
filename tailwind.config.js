@@ -42,36 +42,31 @@ module.exports = {
           "0%, 100%": { opacity: 0.4, transform: "scale(1)" },
           "50%": { opacity: 0.85, transform: "scale(1.04)" },
         },
-        heroPopUp: {
-          "0%": { opacity: "0", transform: "translateY(40px) scale(0.92)" },
+        slowSlideUp: {
+          "0%": { opacity: "0", transform: "translateY(50px) scale(0.94)" },
           "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
-        heroSlideRight: {
-          "0%": { opacity: "0", transform: "translateX(-40px)" },
+        slowSlideRight: {
+          "0%": { opacity: "0", transform: "translateX(-60px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        heroSlideLeft: {
-          "0%": { opacity: "0", transform: "translateX(40px)" },
+        slowSlideLeft: {
+          "0%": { opacity: "0", transform: "translateX(60px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        spinSlow: {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-        reverseSpin: {
-          "0%": { transform: "rotate(360deg)" },
-          "100%": { transform: "rotate(0deg)" },
+        slowScaleUp: {
+          "0%": { opacity: "0", transform: "scale(0.85)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
         },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
         "gemini-shift": "geminiShift 6s ease infinite",
         "pulse-glow": "pulseGlow 4s ease-in-out infinite",
-        "hero-popup": "heroPopUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "hero-slide-right": "heroSlideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "hero-slide-left": "heroSlideLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "spin-slow": "spinSlow 20s linear infinite",
-        "reverse-spin": "reverseSpin 25s linear infinite",
+        "slow-slide-up": "slowSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slow-slide-right": "slowSlideRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slow-slide-left": "slowSlideLeft 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "slow-scale-up": "slowScaleUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
     },
   },
