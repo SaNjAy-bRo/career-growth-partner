@@ -42,16 +42,36 @@ module.exports = {
           "0%, 100%": { opacity: 0.4, transform: "scale(1)" },
           "50%": { opacity: 0.85, transform: "scale(1.04)" },
         },
-        aurora: {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "50%": { transform: "translate(20px, -20px) scale(1.1)" },
+        heroPopUp: {
+          "0%": { opacity: "0", transform: "translateY(40px) scale(0.92)" },
+          "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
+        },
+        heroSlideRight: {
+          "0%": { opacity: "0", transform: "translateX(-40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        heroSlideLeft: {
+          "0%": { opacity: "0", transform: "translateX(40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        spinSlow: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        reverseSpin: {
+          "0%": { transform: "rotate(360deg)" },
+          "100%": { transform: "rotate(0deg)" },
         },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
         "gemini-shift": "geminiShift 6s ease infinite",
         "pulse-glow": "pulseGlow 4s ease-in-out infinite",
-        aurora: "aurora 8s ease-in-out infinite",
+        "hero-popup": "heroPopUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "hero-slide-right": "heroSlideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "hero-slide-left": "heroSlideLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "spin-slow": "spinSlow 20s linear infinite",
+        "reverse-spin": "reverseSpin 25s linear infinite",
       },
     },
   },
