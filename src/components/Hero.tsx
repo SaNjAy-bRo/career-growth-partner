@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Sparkles, TrendingUp, ShieldCheck, Eye, Zap } from "lucide-react";
+import GeminiWaveCanvas from "./GeminiWaveCanvas";
 
 interface HeroProps {
   onOpenAuditModal: () => void;
@@ -15,12 +16,8 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       {/* Dark Grid Pattern Overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0" />
 
-      {/* Ultra-Smooth Vector CSS Gemini Wavy Liquid Ribbon (Zero Distortion on Mobile) */}
-      <div className="gemini-liquid-ribbon-container" aria-hidden="true">
-        <div className="gemini-liquid-ribbon-1" />
-        <div className="gemini-liquid-ribbon-2" />
-        <div className="gemini-liquid-wave-line" />
-      </div>
+      {/* Interactive HTML5 Gemini Wave Canvas Animation */}
+      <GeminiWaveCanvas />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
