@@ -4,27 +4,27 @@ import { XCircle, AlertTriangle, Sparkles, TrendingUp } from "lucide-react";
 
 export default function ProblemVsSolution() {
   return (
-    <section className="py-20 bg-slate-50 text-slate-900 relative overflow-hidden border-y border-slate-200">
-      {/* Subtle Background Glows */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-red-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-80 h-80 bg-cgp-blue/10 rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-20 bg-cgp-bg relative overflow-hidden border-y border-cgp-purple/20">
+      {/* Gemini Ambient Glow Orbs */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cgp-pink/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-cgp-cyan/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-extrabold uppercase tracking-wider shadow-sm">
             <AlertTriangle className="w-3.5 h-3.5" />
             <span>The Hidden Hiring Filter</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             Why 90% of Profiles Get Ignored vs.{" "}
-            <span className="bg-gradient-to-r from-cgp-blue via-cgp-indigo to-cgp-cyan bg-clip-text text-transparent">
+            <span className="gemini-text-gradient">
               The CGP Magnet
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-base sm:text-lg text-cgp-textMuted leading-relaxed">
             Hiring managers scan your profile for exactly 6 seconds. If your headline and summary don't immediately communicate recruiter value, you get passed over for less qualified candidates.
           </p>
         </div>
@@ -32,78 +32,80 @@ export default function ProblemVsSolution() {
         {/* Comparison Grid */}
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
           {/* Unoptimized Profile Card */}
-          <div className="rounded-3xl bg-white border border-red-200 p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-lg shadow-red-500/5 group hover:border-red-400 transition-all">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div className="rounded-3xl bg-cgp-card/50 border border-red-500/30 p-6 sm:p-8 space-y-6 relative overflow-hidden group hover:border-red-500/50 transition-all">
+            <div className="flex items-center justify-between pb-4 border-b border-red-500/20">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-red-600 font-bold">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-bold">
                   <XCircle className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-extrabold text-slate-900">Ordinary LinkedIn Profile</h3>
-                  <p className="text-xs text-red-600 font-bold">Losing Opportunities Daily</p>
+                  <h3 className="text-lg font-extrabold text-white">Ordinary LinkedIn Profile</h3>
+                  <p className="text-xs text-red-400 font-bold">Losing Opportunities Daily</p>
                 </div>
               </div>
-              <span className="px-2.5 py-1 rounded text-[11px] font-bold bg-red-50 text-red-700 border border-red-200">
+              <span className="px-2.5 py-1 rounded text-[11px] font-bold bg-red-500/10 text-red-400 border border-red-500/20">
                 Low Visibility
               </span>
             </div>
 
-            <ul className="space-y-4 text-sm text-slate-700 font-medium">
+            <ul className="space-y-4 text-sm text-slate-300">
               <li className="flex items-start gap-3">
-                <span className="p-1 rounded bg-red-100 text-red-600 shrink-0 mt-0.5 font-bold">✕</span>
+                <span className="p-1 rounded bg-red-500/20 text-red-400 shrink-0 mt-0.5 font-bold">✕</span>
                 <div>
-                  <strong className="text-slate-900 block font-bold">Generic Headline:</strong>
-                  <span className="text-xs text-slate-500">
+                  <strong className="text-white block font-bold">Generic Headline:</strong>
+                  <span className="text-xs text-slate-400">
                     "Student at XYZ College | Looking for software roles" (0 keyword ranking)
                   </span>
                 </div>
               </li>
 
               <li className="flex items-start gap-3">
-                <span className="p-1 rounded bg-red-100 text-red-600 shrink-0 mt-0.5 font-bold">✕</span>
+                <span className="p-1 rounded bg-red-500/20 text-red-400 shrink-0 mt-0.5 font-bold">✕</span>
                 <div>
-                  <strong className="text-slate-900 block font-bold">Blank or Generic About Section:</strong>
-                  <span className="text-xs text-slate-500">
+                  <strong className="text-white block font-bold">Blank or Generic About Section:</strong>
+                  <span className="text-xs text-slate-400">
                     Copy-pasted text from Google that fails to tell your story or highlight strengths.
                   </span>
                 </div>
               </li>
 
               <li className="flex items-start gap-3">
-                <span className="p-1 rounded bg-red-100 text-red-600 shrink-0 mt-0.5 font-bold">✕</span>
+                <span className="p-1 rounded bg-red-500/20 text-red-400 shrink-0 mt-0.5 font-bold">✕</span>
                 <div>
-                  <strong className="text-slate-900 block font-bold">Unframed Experience:</strong>
-                  <span className="text-xs text-slate-500">
+                  <strong className="text-white block font-bold">Unframed Experience:</strong>
+                  <span className="text-xs text-slate-400">
                     Listing course names or vague internship tasks without showing measurable impact.
                   </span>
                 </div>
               </li>
 
               <li className="flex items-start gap-3">
-                <span className="p-1 rounded bg-red-100 text-red-600 shrink-0 mt-0.5 font-bold">✕</span>
+                <span className="p-1 rounded bg-red-500/20 text-red-400 shrink-0 mt-0.5 font-bold">✕</span>
                 <div>
-                  <strong className="text-slate-900 block font-bold">Missing LinkedIn Banner:</strong>
-                  <span className="text-xs text-slate-500">
+                  <strong className="text-white block font-bold">Missing LinkedIn Banner:</strong>
+                  <span className="text-xs text-slate-400">
                     Default grey background that looks incomplete and unprofessional.
                   </span>
                 </div>
               </li>
             </ul>
 
-            <div className="pt-4 border-t border-slate-100 text-xs text-red-600 font-bold flex items-center justify-between">
+            <div className="pt-4 border-t border-slate-800 text-xs text-red-400 font-bold flex items-center justify-between">
               <span>Recruiter Response Rate: &lt; 5%</span>
               <span>Search Page: 12+</span>
             </div>
           </div>
 
           {/* CGP Recruiter Magnet Card */}
-          <div className="rounded-3xl bg-cgp-card text-white border-2 border-cgp-blue p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-2xl shadow-cgp-blue/20 group hover:border-cgp-cyan transition-all">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-cgp-cyan/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="rounded-3xl glass-card border border-cgp-purple/40 p-6 sm:p-8 space-y-6 relative overflow-hidden shadow-2xl shadow-cgp-purple/20 group hover:border-cgp-cyan transition-all">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-cgp-pink/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="flex items-center justify-between pb-4 border-b border-cgp-cyan/20">
+            <div className="flex items-center justify-between pb-4 border-b border-cgp-cyan/30">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-cgp-blue/20 border border-cgp-cyan/40 flex items-center justify-center text-cgp-cyan font-bold">
-                  <Sparkles className="w-6 h-6 animate-pulse" />
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cgp-cyan via-cgp-purple to-cgp-pink p-0.5 shadow-md">
+                  <div className="w-full h-full bg-cgp-card rounded-[10px] flex items-center justify-center text-cgp-cyan">
+                    <Sparkles className="w-5 h-5 animate-pulse" />
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-lg font-extrabold text-white">CGP Recruiter Magnet Profile</h3>

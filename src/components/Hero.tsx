@@ -30,10 +30,10 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-cgp-bg/30 via-transparent to-cgp-bg pointer-events-none" />
 
-      {/* Background AI Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cgp-cyan/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[350px] h-[350px] bg-cgp-indigo/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-cgp-blue/15 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background Gemini AI Glow Orbs */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-cgp-purple/20 rounded-full blur-[150px] pointer-events-none animate-aurora" />
+      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cgp-pink/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-cgp-cyan/20 rounded-full blur-[110px] pointer-events-none" />
 
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
@@ -43,15 +43,15 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
           {/* Left Column: Copy & Messaging */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* AI Pill Badge - Hidden on mobile */}
-            <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cgp-cyan/15 via-cgp-blue/15 to-cgp-indigo/15 border border-cgp-cyan/30 text-cgp-cyan text-xs font-semibold tracking-wide uppercase shadow-sm backdrop-blur-md">
+            <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-cgp-cyan/15 via-cgp-purple/15 to-cgp-pink/15 border border-cgp-purple/40 text-cgp-cyan text-xs font-semibold tracking-wide uppercase shadow-sm backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-cgp-cyan animate-pulse" />
-              <span>AI-Powered Career Branding • Bengaluru & Worldwide</span>
+              <span>Gemini-Class AI Career Intelligence • Bengaluru & Worldwide</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
               We Turn LinkedIn Profiles into{" "}
-              <span className="bg-gradient-to-r from-cgp-cyan via-blue-400 to-cgp-indigo bg-clip-text text-transparent drop-shadow-sm">
+              <span className="gemini-text-gradient">
                 Opportunity Magnets
               </span>
             </h1>
@@ -62,12 +62,12 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </p>
 
             {/* Target Persona Switcher */}
-            <div className="inline-flex p-1 rounded-xl bg-cgp-card border border-cgp-cyan/20 max-w-md mx-auto lg:mx-0">
+            <div className="inline-flex p-1 rounded-xl bg-cgp-card border border-cgp-purple/30 max-w-md mx-auto lg:mx-0 shadow-lg shadow-cgp-purple/10">
               <button
                 onClick={() => setActiveTab("student")}
                 className={`flex-1 py-2 px-4 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
                   activeTab === "student"
-                    ? "bg-gradient-to-r from-cgp-cyan to-cgp-blue text-white shadow-md"
+                    ? "bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink text-white shadow-md"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -78,7 +78,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
                 onClick={() => setActiveTab("jobseeker")}
                 className={`flex-1 py-2 px-4 rounded-lg text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
                   activeTab === "jobseeker"
-                    ? "bg-gradient-to-r from-cgp-cyan to-cgp-blue text-white shadow-md"
+                    ? "bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink text-white shadow-md"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -134,7 +134,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <button
                 onClick={onOpenAuditModal}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cgp-cyan via-cgp-blue to-cgp-indigo hover:from-sky-400 hover:to-indigo-500 text-white font-bold text-base shadow-xl shadow-cgp-blue/30 hover:shadow-cgp-cyan/50 hover:scale-[1.02] active:scale-95 transition-all duration-200 flex items-center justify-center gap-3"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cgp-cyan via-cgp-purple to-cgp-pink hover:from-sky-400 hover:to-pink-500 text-white font-extrabold text-base shadow-xl shadow-cgp-purple/30 hover:shadow-cgp-cyan/50 hover:scale-[1.02] active:scale-95 transition-all duration-200 flex items-center justify-center gap-3"
               >
                 <Zap className="w-5 h-5 fill-white text-white" />
                 <span>Transform My Profile Now</span>
@@ -142,7 +142,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
 
               <a
                 href="#ai-score"
-                className="w-full sm:w-auto px-6 py-4 rounded-xl bg-cgp-card/80 border border-cgp-cyan/30 hover:border-cgp-cyan text-slate-200 hover:text-white font-semibold text-base backdrop-blur-md hover:bg-cgp-surface transition-all flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-6 py-4 rounded-xl bg-cgp-card/80 border border-cgp-purple/30 hover:border-cgp-cyan text-slate-200 hover:text-white font-semibold text-base backdrop-blur-md hover:bg-cgp-surface transition-all flex items-center justify-center gap-2 group"
               >
                 <Sparkles className="w-4 h-4 text-cgp-cyan group-hover:rotate-12 transition-transform" />
                 <span>Test AI Readiness Score</span>

@@ -9,42 +9,49 @@ module.exports = {
     extend: {
       colors: {
         cgp: {
-          bg: "#080C14",
+          bg: "#070A12",
           card: "#0F172A",
-          surface: "#131C31",
-          border: "rgba(56, 189, 248, 0.15)",
+          surface: "#141E33",
+          border: "rgba(139, 92, 246, 0.2)",
           cyan: "#38BDF8",
           blue: "#2563EB",
+          purple: "#8B5CF6",
+          pink: "#EC4899",
           indigo: "#6366F1",
           gold: "#F59E0B",
-          goldLight: "#FCD34D",
           textMuted: "#94A3B8",
           textLight: "#F8FAFC",
         },
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "ai-gradient": "linear-gradient(135deg, #38BDF8 0%, #2563EB 50%, #6366F1 100%)",
-        "ai-glow": "radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 70%)",
-        "hero-pattern": "radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.18) 0%, rgba(8, 12, 20, 1) 75%)",
+        "gemini-gradient": "linear-gradient(135deg, #38BDF8 0%, #8B5CF6 35%, #EC4899 70%, #2563EB 100%)",
+        "gemini-glow": "radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.25) 0%, rgba(56, 189, 248, 0.15) 35%, rgba(7, 10, 18, 1) 80%)",
+        "hero-pattern": "radial-gradient(ellipse at top, rgba(139, 92, 246, 0.18) 0%, rgba(7, 10, 18, 1) 75%)",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        geminiShift: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
         pulseGlow: {
           "0%, 100%": { opacity: 0.4, transform: "scale(1)" },
-          "50%": { opacity: 0.8, transform: "scale(1.05)" },
+          "50%": { opacity: 0.85, transform: "scale(1.04)" },
         },
-        shimmer: {
-          "100%": { transform: "translateX(100%)" },
+        aurora: {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(20px, -20px) scale(1.1)" },
         },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
-        "pulse-glow": "pulseGlow 3s ease-in-out infinite",
-        shimmer: "shimmer 2.5s infinite",
+        "gemini-shift": "geminiShift 6s ease infinite",
+        "pulse-glow": "pulseGlow 4s ease-in-out infinite",
+        aurora: "aurora 8s ease-in-out infinite",
       },
     },
   },

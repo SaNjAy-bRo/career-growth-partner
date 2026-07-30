@@ -37,23 +37,26 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-20 bg-slate-100 text-slate-900 relative overflow-hidden border-y border-slate-200">
+    <section className="py-20 bg-cgp-card/50 text-white relative overflow-hidden border-y border-cgp-purple/20">
+      {/* Background Orbs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cgp-purple/10 rounded-full blur-[160px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cgp-gold/10 border border-cgp-gold/30 text-cgp-gold text-xs font-bold uppercase tracking-wider shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Success Stories</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             Loved by Students &{" "}
-            <span className="bg-gradient-to-r from-cgp-blue via-cgp-indigo to-cgp-cyan bg-clip-text text-transparent">
+            <span className="gemini-text-gradient">
               Job Seekers
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-base sm:text-lg text-cgp-textMuted leading-relaxed">
             Read real feedback from ambitious candidates who transformed their career trajectory with CGP.
           </p>
         </div>
@@ -63,37 +66,37 @@ export default function Testimonials() {
           {reviews.map((review, idx) => (
             <div
               key={idx}
-              className="rounded-3xl p-6 sm:p-8 bg-white border border-slate-200 space-y-5 flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300 group"
+              className="glass-card rounded-3xl p-6 sm:p-8 border border-cgp-purple/20 space-y-5 flex flex-col justify-between hover:border-cgp-cyan/50 transition-all duration-300 group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex gap-1">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
+                      <Star key={i} className="w-4 h-4 text-cgp-gold fill-cgp-gold" />
                     ))}
                   </div>
-                  <Quote className="w-6 h-6 text-slate-300 group-hover:text-cgp-blue transition-colors" />
+                  <Quote className="w-6 h-6 text-cgp-cyan/30 group-hover:text-cgp-cyan transition-colors" />
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic font-medium">
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
                   "{review.story}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100 space-y-3">
+              <div className="pt-4 border-t border-slate-800 space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-xl">
+                  <div className="w-10 h-10 rounded-full bg-cgp-surface border border-cgp-cyan/30 flex items-center justify-center text-xl">
                     {review.avatar}
                   </div>
                   <div>
-                    <h4 className="text-sm font-extrabold text-slate-900">{review.name}</h4>
-                    <p className="text-xs text-cgp-blue font-bold">{review.role}</p>
-                    <p className="text-[10px] text-slate-500 font-medium">{review.location}</p>
+                    <h4 className="text-sm font-bold text-white">{review.name}</h4>
+                    <p className="text-xs text-cgp-cyan font-bold">{review.role}</p>
+                    <p className="text-[10px] text-cgp-textMuted">{review.location}</p>
                   </div>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 w-full justify-center">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 w-full justify-center">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>{review.result}</span>
                 </div>
               </div>
