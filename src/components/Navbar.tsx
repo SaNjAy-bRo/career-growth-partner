@@ -14,17 +14,10 @@ export default function Navbar({ onOpenAuditModal }: NavbarProps) {
     <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-cgp-bg/85 border-b border-cgp-cyan/15 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-cgp-blue via-cgp-cyan to-cgp-indigo p-0.5 shadow-lg shadow-cgp-cyan/20 group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-cgp-bg rounded-[10px] flex items-center justify-center">
-                <span className="font-extrabold text-xl bg-gradient-to-r from-cgp-cyan to-cgp-gold bg-clip-text text-transparent">
-                  CGP
-                </span>
-              </div>
-            </div>
-            <span className="font-bold text-lg sm:text-xl text-white tracking-tight group-hover:text-cgp-cyan transition-colors">
-              Career Growth Partners
+          {/* Brand Logo - Just Name */}
+          <a href="#" className="flex items-center group">
+            <span className="font-black text-xl sm:text-2xl tracking-tight text-white group-hover:text-cgp-cyan transition-colors">
+              Career Growth <span className="gemini-text-gradient">Partners</span>
             </span>
           </a>
 
