@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemVsSolution from "@/components/ProblemVsSolution";
 import ServicesGrid from "@/components/ServicesGrid";
+import RecruiterScanMatrix from "@/components/RecruiterScanMatrix";
 import PackagesSection from "@/components/PackagesSection";
 import Testimonials from "@/components/Testimonials";
 import AiProfileAuditTool from "@/components/AiProfileAuditTool";
@@ -31,25 +32,28 @@ export default function Home() {
       {/* 2. Hero Section */}
       <Hero onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 3. We Show: Problem vs Solution Transformation */}
+      {/* 3. Section 1: We Show (Problem vs Solution Transformation) */}
       <ProblemVsSolution />
 
-      {/* 4. Services Provided (Career Coaching, Resume Writing, Interview Prep, Brand Consulting) */}
+      {/* 4. Section 2: Services Provided */}
       <ServicesGrid onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 5. Packages & Pricing */}
+      {/* 5. Section 3: Hidden Hiring Filter & Recruiter Scanning Matrix */}
+      <RecruiterScanMatrix />
+
+      {/* 6. Section 4: Packages & Pricing */}
       <PackagesSection onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 6. Success Stories (Testimonials & Outcomes) */}
+      {/* 7. Section 5: Success Stories (Testimonials & Outcomes) */}
       <Testimonials />
 
-      {/* 7. Some Free Resources (Interactive AI Score Readiness Tool) */}
+      {/* 8. Section 6: Some Free Resources (Interactive AI Score Readiness Tool) */}
       <AiProfileAuditTool onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* 8. FAQs */}
+      {/* 9. FAQs */}
       <FaqSection />
 
-      {/* 9. High-Converting Footer */}
+      {/* 10. High-Converting Footer */}
       <Footer onOpenAuditModal={handleOpenAuditModal} />
 
       {/* Audit Modal Dialog */}
