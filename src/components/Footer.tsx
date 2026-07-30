@@ -42,16 +42,9 @@ export default function Footer({ onOpenAuditModal }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800/80 items-start">
           {/* Brand Info */}
           <div className="md:col-span-8 space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-cgp-blue via-cgp-cyan to-cgp-indigo p-0.5 shadow-md">
-                <div className="w-full h-full bg-cgp-bg rounded-[10px] flex items-center justify-center font-extrabold text-lg text-cgp-cyan">
-                  CGP
-                </div>
-              </div>
-              <h3 className="font-extrabold text-xl text-white tracking-tight">
-                Career Growth Partners
-              </h3>
-            </div>
+            <h3 className="font-black text-xl sm:text-2xl text-white tracking-tight">
+              Career Growth <span className="gemini-text-gradient">Partners</span>
+            </h3>
 
             <p className="text-xs text-cgp-textMuted leading-relaxed max-w-md">
               Helping students and job seekers build recruiter-ready personal brands, rank top in hiring searches, and land more interview calls.
@@ -72,8 +65,8 @@ export default function Footer({ onOpenAuditModal }: FooterProps) {
               <a href="#services" className="hover:text-cgp-cyan transition-colors">
                 Services
               </a>
-              <a href="#ai-score" className="hover:text-cgp-cyan transition-colors">
-                AI Score Tool
+              <a href="#transformation" className="hover:text-cgp-cyan transition-colors">
+                Before & After
               </a>
               <a href="#pricing" className="hover:text-cgp-cyan transition-colors">
                 Packages
