@@ -42,31 +42,31 @@ module.exports = {
           "0%, 100%": { opacity: 0.4, transform: "scale(1)" },
           "50%": { opacity: 0.85, transform: "scale(1.04)" },
         },
-        slowSlideUp: {
-          "0%": { opacity: "0", transform: "translateY(50px) scale(0.94)" },
+        ultraSlowSlideUp: {
+          "0%": { opacity: "0", transform: "translateY(60px) scale(0.92)" },
           "100%": { opacity: "1", transform: "translateY(0) scale(1)" },
         },
-        slowSlideRight: {
-          "0%": { opacity: "0", transform: "translateX(-60px)" },
+        ultraSlowSlideRight: {
+          "0%": { opacity: "0", transform: "translateX(-70px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        slowSlideLeft: {
-          "0%": { opacity: "0", transform: "translateX(60px)" },
+        ultraSlowSlideLeft: {
+          "0%": { opacity: "0", transform: "translateX(70px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        slowScaleUp: {
-          "0%": { opacity: "0", transform: "scale(0.85)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
+        textRevealFade: {
+          "0%": { opacity: "0", transform: "translateY(15px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
         "gemini-shift": "geminiShift 6s ease infinite",
         "pulse-glow": "pulseGlow 4s ease-in-out infinite",
-        "slow-slide-up": "slowSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "slow-slide-right": "slowSlideRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "slow-slide-left": "slowSlideLeft 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "slow-scale-up": "slowScaleUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "ultra-slow-slide-up": "ultraSlowSlideUp 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "ultra-slow-slide-right": "ultraSlowSlideRight 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "ultra-slow-slide-left": "ultraSlowSlideLeft 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "text-reveal": "textRevealFade 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
     },
   },

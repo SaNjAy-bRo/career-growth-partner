@@ -25,28 +25,28 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
       {/* Main Hero Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 pb-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Copy & CTAs with Smooth Slow-Mo Entrance Animations */}
+          {/* Left Column: Copy & CTAs with Ultra Slow-Motion Step-by-Step Sequence */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Headline with Slow-Mo Slide Right */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] animate-slow-slide-right">
+            {/* Step 1 (0ms): Headline with Ultra Slow-Mo Slide Right */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] animate-ultra-slow-slide-right">
               We Turn LinkedIn Profiles into{" "}
               <span className="gemini-text-gradient">
                 Opportunity Magnets
               </span>
             </h1>
 
-            {/* Subheadline with Slow-Mo Slide Up */}
+            {/* Step 2 (300ms): Subheadline with Ultra Slow-Mo Slide Up */}
             <p
-              className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed text-balance animate-slow-slide-up opacity-0"
-              style={{ animationDelay: "150ms", animationFillMode: "forwards" }}
+              className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed text-balance animate-ultra-slow-slide-up opacity-0"
+              style={{ animationDelay: "300ms", animationFillMode: "forwards" }}
             >
               Helping students & job seekers build recruiter-ready personal brands, rank top in hiring searches, and land more interview calls.
             </p>
 
-            {/* Persona Switcher Buttons with Slow-Mo Slide Up */}
+            {/* Step 3 (600ms): Persona Switcher Buttons */}
             <div
-              className="inline-flex p-1 rounded-2xl bg-cgp-card/90 border border-cgp-purple/30 max-w-md mx-auto lg:mx-0 shadow-lg animate-slow-slide-up opacity-0"
-              style={{ animationDelay: "300ms", animationFillMode: "forwards" }}
+              className="inline-flex p-1 rounded-2xl bg-cgp-card/90 border border-cgp-purple/30 max-w-md mx-auto lg:mx-0 shadow-lg animate-ultra-slow-slide-up opacity-0"
+              style={{ animationDelay: "600ms", animationFillMode: "forwards" }}
             >
               <button
                 onClick={() => setActiveTab("student")}
@@ -72,10 +72,10 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
               </button>
             </div>
 
-            {/* Primary Action CTA with Slow-Mo Slide Up */}
+            {/* Step 4 (900ms): Primary Action CTA */}
             <div
-              className="pt-2 space-y-3 max-w-md mx-auto lg:mx-0 animate-slow-slide-up opacity-0"
-              style={{ animationDelay: "450ms", animationFillMode: "forwards" }}
+              className="pt-2 space-y-3 max-w-md mx-auto lg:mx-0 animate-ultra-slow-slide-up opacity-0"
+              style={{ animationDelay: "900ms", animationFillMode: "forwards" }}
             >
               <button
                 onClick={onOpenAuditModal}
@@ -91,25 +91,29 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Column: 3D Resume Hologram with Slow-Mo Slide Left */}
+          {/* Step 5 (1200ms): Right Column 3D Resume Hologram Card */}
           <div
-            className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0 animate-slow-slide-left opacity-0"
-            style={{ animationDelay: "250ms", animationFillMode: "forwards" }}
+            className="lg:col-span-5 relative flex items-center justify-center pt-6 lg:pt-0 animate-ultra-slow-slide-left opacity-0"
+            style={{ animationDelay: "1200ms", animationFillMode: "forwards" }}
           >
             <ResumeHologramAnimation />
           </div>
         </div>
 
-        {/* 4-Card Value Grid with Staggered Slow-Mo Card Slide In */}
+        {/* 4-Card Value Grid with Step-by-Step Card & Inner Text Reveals */}
         <div className="mt-16 hidden sm:grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {/* Card 1: Container at 1500ms, Inner Text Reveal at 1800ms */}
           <div
-            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-slow-slide-up opacity-0"
-            style={{ animationDelay: "400ms", animationFillMode: "forwards" }}
+            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-ultra-slow-slide-up opacity-0"
+            style={{ animationDelay: "1500ms", animationFillMode: "forwards" }}
           >
             <div className="w-10 h-10 rounded-xl bg-cgp-purple/15 border border-cgp-purple/30 flex items-center justify-center text-cgp-cyan">
               <Sparkles className="w-5 h-5" />
             </div>
-            <div>
+            <div
+              className="animate-text-reveal opacity-0"
+              style={{ animationDelay: "1800ms", animationFillMode: "forwards" }}
+            >
               <h4 className="text-sm font-bold text-white">AI Profile Audit</h4>
               <p className="text-xs text-cgp-textMuted mt-1">
                 Get AI insights to improve your profile
@@ -117,14 +121,18 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </div>
           </div>
 
+          {/* Card 2: Container at 1800ms, Inner Text Reveal at 2100ms */}
           <div
-            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-slow-slide-up opacity-0"
-            style={{ animationDelay: "550ms", animationFillMode: "forwards" }}
+            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-ultra-slow-slide-up opacity-0"
+            style={{ animationDelay: "1800ms", animationFillMode: "forwards" }}
           >
             <div className="w-10 h-10 rounded-xl bg-cgp-cyan/15 border border-cgp-cyan/30 flex items-center justify-center text-cgp-cyan">
               <Search className="w-5 h-5" />
             </div>
-            <div>
+            <div
+              className="animate-text-reveal opacity-0"
+              style={{ animationDelay: "2100ms", animationFillMode: "forwards" }}
+            >
               <h4 className="text-sm font-bold text-white">ATS Optimized</h4>
               <p className="text-xs text-cgp-textMuted mt-1">
                 Rank higher in recruiter and ATS searches
@@ -132,14 +140,18 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </div>
           </div>
 
+          {/* Card 3: Container at 2100ms, Inner Text Reveal at 2400ms */}
           <div
-            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-slow-slide-up opacity-0"
-            style={{ animationDelay: "700ms", animationFillMode: "forwards" }}
+            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-ultra-slow-slide-up opacity-0"
+            style={{ animationDelay: "2100ms", animationFillMode: "forwards" }}
           >
             <div className="w-10 h-10 rounded-xl bg-cgp-pink/15 border border-cgp-pink/30 flex items-center justify-center text-cgp-pink">
               <FileText className="w-5 h-5" />
             </div>
-            <div>
+            <div
+              className="animate-text-reveal opacity-0"
+              style={{ animationDelay: "2400ms", animationFillMode: "forwards" }}
+            >
               <h4 className="text-sm font-bold text-white">Content That Converts</h4>
               <p className="text-xs text-cgp-textMuted mt-1">
                 Crafted to highlight your strengths & impact
@@ -147,14 +159,18 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
             </div>
           </div>
 
+          {/* Card 4: Container at 2400ms, Inner Text Reveal at 2700ms */}
           <div
-            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-slow-slide-up opacity-0"
-            style={{ animationDelay: "850ms", animationFillMode: "forwards" }}
+            className="glass-card rounded-2xl p-5 border border-cgp-purple/20 space-y-3 hover:border-cgp-cyan/40 hover:-translate-y-1 transition-all animate-ultra-slow-slide-up opacity-0"
+            style={{ animationDelay: "2400ms", animationFillMode: "forwards" }}
           >
             <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
               <Zap className="w-5 h-5" />
             </div>
-            <div>
+            <div
+              className="animate-text-reveal opacity-0"
+              style={{ animationDelay: "2700ms", animationFillMode: "forwards" }}
+            >
               <h4 className="text-sm font-bold text-white">More Interviews</h4>
               <p className="text-xs text-cgp-textMuted mt-1">
                 Attract better opportunities and interview calls
@@ -163,10 +179,10 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
           </div>
         </div>
 
-        {/* Trust & Social Proof Row with Slow-Mo Slide Up */}
+        {/* Step 8 (2800ms): Trust & Social Proof Row */}
         <div
-          className="mt-6 glass-card rounded-2xl p-5 border border-cgp-purple/20 flex flex-col sm:flex-row items-center justify-between gap-4 animate-slow-slide-up opacity-0"
-          style={{ animationDelay: "1000ms", animationFillMode: "forwards" }}
+          className="mt-6 glass-card rounded-2xl p-5 border border-cgp-purple/20 flex flex-col sm:flex-row items-center justify-between gap-4 animate-ultra-slow-slide-up opacity-0"
+          style={{ animationDelay: "2800ms", animationFillMode: "forwards" }}
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-cgp-cyan/15 border border-cgp-cyan/30 flex items-center justify-center text-cgp-cyan shrink-0">
