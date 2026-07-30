@@ -24,59 +24,62 @@ body {
   animation: geminiShift 5s ease infinite;
 }
 
-/* High-Visibility Animated Wavy Gemini Aurora Field */
-.gemini-aurora-wrapper {
+/* Tasteful Elegant Gemini Aurora Illumination Background */
+.aurora-container {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.85; /* Highly visible */
 }
 
-.gemini-aurora-wave {
+.aurora-layer {
   position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.45) 0%, rgba(139, 92, 246, 0.4) 30%, rgba(236, 72, 153, 0.35) 60%, transparent 80%);
+  inset: -20%;
+  background-image: 
+    radial-gradient(ellipse at 30% 25%, rgba(56, 189, 248, 0.35) 0%, transparent 45%),
+    radial-gradient(ellipse at 75% 35%, rgba(139, 92, 246, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 75%, rgba(236, 72, 153, 0.25) 0%, transparent 45%);
+  filter: blur(45px);
+  background-size: 150% 150%;
+  animation: auroraFluid 12s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+
+.aurora-layer-2 {
+  position: absolute;
+  inset: -15%;
+  background-image: 
+    radial-gradient(ellipse at 65% 65%, rgba(236, 72, 153, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 25% 15%, rgba(139, 92, 246, 0.35) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 85%, rgba(56, 189, 248, 0.25) 0%, transparent 45%);
   filter: blur(50px);
-  animation: wavyAuroraMove 14s ease-in-out infinite alternate;
+  background-size: 140% 140%;
+  animation: auroraFluid2 16s ease-in-out infinite alternate;
+  opacity: 0.55;
 }
 
-.gemini-aurora-wave-2 {
-  position: absolute;
-  width: 180%;
-  height: 180%;
-  top: -40%;
-  right: -40%;
-  background: radial-gradient(ellipse at center, rgba(236, 72, 153, 0.4) 0%, rgba(37, 99, 235, 0.45) 35%, rgba(139, 92, 246, 0.35) 65%, transparent 80%);
-  filter: blur(60px);
-  animation: wavyAuroraMove2 18s ease-in-out infinite alternate;
-}
-
-@keyframes wavyAuroraMove {
+@keyframes auroraFluid {
   0% {
-    transform: rotate(0deg) translate(0px, 0px) scale(1);
+    transform: rotate(0deg) scale(1) translate(0, 0);
   }
   50% {
-    transform: rotate(180deg) translate(80px, -60px) scale(1.25);
+    transform: rotate(60deg) scale(1.1) translate(25px, -15px);
   }
   100% {
-    transform: rotate(360deg) translate(-50px, 40px) scale(0.95);
+    transform: rotate(120deg) scale(0.95) translate(-15px, 20px);
   }
 }
 
-@keyframes wavyAuroraMove2 {
+@keyframes auroraFluid2 {
   0% {
-    transform: rotate(360deg) translate(0px, 0px) scale(1);
+    transform: rotate(120deg) scale(1) translate(0, 0);
   }
   50% {
-    transform: rotate(180deg) translate(-70px, 50px) scale(1.2);
+    transform: rotate(60deg) scale(1.1) translate(-30px, 20px);
   }
   100% {
-    transform: rotate(0deg) translate(60px, -40px) scale(0.9);
+    transform: rotate(0deg) scale(0.95) translate(25px, -20px);
   }
 }
 
