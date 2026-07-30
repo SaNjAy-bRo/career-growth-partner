@@ -3,13 +3,11 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import StatsBanner from "@/components/StatsBanner";
 import ProblemVsSolution from "@/components/ProblemVsSolution";
-import AiProfileAuditTool from "@/components/AiProfileAuditTool";
 import ServicesGrid from "@/components/ServicesGrid";
-import BeforeAfterShowcase from "@/components/BeforeAfterShowcase";
 import PackagesSection from "@/components/PackagesSection";
 import Testimonials from "@/components/Testimonials";
+import AiProfileAuditTool from "@/components/AiProfileAuditTool";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import AuditModal from "@/components/AuditModal";
@@ -27,40 +25,34 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-cgp-bg text-white selection:bg-cgp-cyan selection:text-cgp-bg">
-      {/* Top Header Navigation */}
+      {/* 1. Top Header Navigation */}
       <Navbar onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* Hero Section with Gemini Illuminations */}
+      {/* 2. Hero Section */}
       <Hero onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* Stats & Trust Banner */}
-      <StatsBanner />
-
-      {/* Problem vs Solution */}
+      {/* 3. We Show: Problem vs Solution Transformation */}
       <ProblemVsSolution />
 
-      {/* Interactive AI Score Calculator Tool */}
-      <AiProfileAuditTool onOpenAuditModal={handleOpenAuditModal} />
-
-      {/* Core Services Grid */}
+      {/* 4. Services Provided (Career Coaching, Resume Writing, Interview Prep, Brand Consulting) */}
       <ServicesGrid onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* Before vs After Profile Transformation Showcase */}
-      <BeforeAfterShowcase />
-
-      {/* Service Packages & Pricing */}
+      {/* 5. Packages & Pricing */}
       <PackagesSection onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* Real Reviews & Testimonials */}
+      {/* 6. Success Stories (Testimonials & Outcomes) */}
       <Testimonials />
 
-      {/* Frequently Asked Questions */}
+      {/* 7. Some Free Resources (Interactive AI Score Readiness Tool) */}
+      <AiProfileAuditTool onOpenAuditModal={handleOpenAuditModal} />
+
+      {/* 8. FAQs */}
       <FaqSection />
 
-      {/* High-Converting Footer */}
+      {/* 9. High-Converting Footer */}
       <Footer onOpenAuditModal={handleOpenAuditModal} />
 
-      {/* Interactive Free Audit Booking Modal */}
+      {/* Audit Modal Dialog */}
       <AuditModal isOpen={isAuditModalOpen} onClose={handleCloseAuditModal} />
     </main>
   );

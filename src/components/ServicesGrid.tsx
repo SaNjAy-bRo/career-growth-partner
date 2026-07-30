@@ -1,14 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import {
-  GraduationCap,
-  Briefcase,
-  Search,
-  BookOpen,
-  TrendingUp,
-  FileCheck,
+  Compass,
+  FileText,
+  UserCheck,
+  Award,
   ArrowUpRight,
   Sparkles,
+  CheckCircle2,
 } from "lucide-react";
 
 interface ServicesGridProps {
@@ -16,148 +16,167 @@ interface ServicesGridProps {
 }
 
 export default function ServicesGrid({ onOpenAuditModal }: ServicesGridProps) {
+  const [selectedTag, setSelectedTag] = useState<string>("All");
+
+  const serviceCategories = [
+    "All",
+    "Career Development Coaching",
+    "Resume Writing",
+    "Interview Preparation",
+    "Brand Consulting",
+  ];
+
   const services = [
     {
-      icon: GraduationCap,
-      title: "Student Profile Makeover",
-      subtitle: "First Impression Excellence",
+      category: "Career Development Coaching",
+      icon: Compass,
+      title: "Career Development Coaching",
+      subtitle: "Strategic Guidance & Salary Acceleration",
       description:
-        "Build a commanding corporate brand as a college student. Convert academic assignments, tech stacks, and campus roles into recruiter-ready proof of ability.",
-      tags: ["Student Branding", "Fresher Positioning", "Academic Reframing"],
+        "1-on-1 personalized career roadmap sessions. We help freshers and experienced professionals identify high-demand skill gaps, position for promotions, and negotiate top-tier compensation.",
+      features: [
+        "1-on-1 Strategic Career Assessment",
+        "Target Role & Industry Roadmap",
+        "Offer & Salary Negotiation Playbook",
+      ],
       color: "from-cgp-cyan via-cgp-blue to-cgp-purple",
     },
     {
-      icon: Briefcase,
-      title: "Job Seeker Transformation",
-      subtitle: "Recruiter Magnet Blueprint",
+      category: "Resume Writing",
+      icon: FileText,
+      title: "ATS Resume Writing",
+      subtitle: "High-Converting ATS Formats",
       description:
-        "Make your profile impossible to miss for HR managers. We align your experience with active market demands to generate high-paying interview calls.",
-      tags: ["Recruiter Search", "Career Transition", "High Callback Rate"],
+        "Custom ATS-optimized resumes crafted to bypass automated recruiter screening filters and land directly on hiring manager desks with quantified achievement metrics.",
+      features: [
+        "ATS Keyword & Schema Parsing",
+        "Executive & Fresher Role Customization",
+        "Editable Word & PDF Deliverables",
+      ],
       color: "from-cgp-purple via-cgp-pink to-cgp-blue",
     },
     {
-      icon: Search,
-      title: "Headline SEO Optimization",
-      subtitle: "Rank Top in Candidate Search",
+      category: "Interview Preparation",
+      icon: UserCheck,
+      title: "Interview Preparation",
+      subtitle: "Mock Interviews & Pitch Mastery",
       description:
-        "Replace generic headlines with search-indexed formulas that make your profile pop up first when recruiters filter by target role keywords.",
-      tags: ["Keyword Indexing", "ATS Search", "Recruiter Boolean"],
+        "Master high-stakes technical & behavioral interview rounds. Practice with industry mentors, refine your elevator pitch, and answer STAR-method questions with bulletproof confidence.",
+      features: [
+        "Mock Technical & HR Interviews",
+        "STAR Method Answer Structuring",
+        "Confidence & Elevator Pitch Coaching",
+      ],
       color: "from-cgp-cyan to-cgp-indigo",
     },
     {
-      icon: BookOpen,
-      title: "About Section Storywriting",
-      subtitle: "Hooking Career Narrative",
+      category: "Brand Consulting",
+      icon: Award,
+      title: "LinkedIn Brand Consulting",
+      subtitle: "Recruiter Magnet Optimization",
       description:
-        "Tell your personal journey with punchy, high-impact storytelling. Create instant emotional connection while showcasing core technical competencies.",
-      tags: ["Personal Branding", "Storytelling", "Executive Pitch"],
+        "Transform your LinkedIn profile into an automated inbound lead engine. We optimize your headline, about section, featured media, and algorithm search index.",
+      features: [
+        "Search Keyword & Index Optimization",
+        "Executive About Section Storytelling",
+        "Inbound Recruiter Outreach Hook",
+      ],
       color: "from-cgp-pink to-purple-600",
-    },
-    {
-      icon: TrendingUp,
-      title: "Experience Reframing",
-      subtitle: "Turn Tasks into Achievements",
-      description:
-        "Transform routine job duties and internship tasks into quantified corporate achievements with metrics, tool tags, and quantifiable results.",
-      tags: ["Metrics & Impact", "Skill Mapping", "Corporate Reframing"],
-      color: "from-amber-500 to-cgp-pink",
-    },
-    {
-      icon: FileCheck,
-      title: "Resume & Profile Alignment",
-      subtitle: "360° Personal Brand Sync",
-      description:
-        "Ensure seamless consistency between your resume, portfolio links, and LinkedIn presence so hiring managers see a unified top-tier candidate.",
-      tags: ["Resume Sync", "Portfolio Integration", "Brand Unity"],
-      color: "from-emerald-400 to-cgp-cyan",
     },
   ];
 
+  const filteredServices =
+    selectedTag === "All"
+      ? services
+      : services.filter((s) => s.category === selectedTag);
+
   return (
-    <section id="services" className="py-20 bg-cgp-bg text-white relative overflow-hidden border-y border-cgp-purple/20">
-      {/* Gemini Background Orbs */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-cgp-purple/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cgp-cyan/15 rounded-full blur-[140px] pointer-events-none" />
+    <section id="services" className="py-24 bg-cgp-bg text-white relative overflow-hidden">
+      {/* Background Accent Glow */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cgp-purple/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-cgp-cyan/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cgp-purple/15 border border-cgp-purple/30 text-cgp-cyan text-xs font-bold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse text-cgp-cyan" />
-            <span>Tailored Solutions</span>
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cgp-card border border-cgp-purple/30 text-cgp-cyan text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-cgp-cyan" />
+            <span>Comprehensive Career Services</span>
           </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Our Core Career Transformation{" "}
-            <span className="gemini-text-gradient">
-              Services
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+            Services <span className="gemini-text-gradient">Provided</span>
           </h2>
-
-          <p className="text-base sm:text-lg text-cgp-textMuted leading-relaxed">
-            From fresher positioning to recruiter search optimization, we provide end-to-end profile makeovers that get you noticed.
+          <p className="text-slate-300 text-sm sm:text-base">
+            End-to-end personal branding and career acceleration solutions tailored for students, freshers, and job switchers worldwide.
           </p>
+
+          {/* Filter Badges matching screenshot */}
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+            {serviceCategories.map((category, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedTag(category)}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all border ${
+                  selectedTag === category
+                    ? "bg-gradient-to-r from-cgp-cyan to-cgp-purple text-white border-transparent shadow-lg shadow-cgp-cyan/20"
+                    : "bg-cgp-card text-slate-300 border-cgp-purple/20 hover:border-cgp-cyan/50 hover:text-white"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((service, idx) => {
-            const IconComp = service.icon;
+        {/* Services Cards Grid */}
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          {filteredServices.map((service, idx) => {
+            const Icon = service.icon;
             return (
               <div
                 key={idx}
-                className="group relative glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-cgp-purple/25 transition-all duration-300"
+                className="glass-card rounded-3xl p-7 border border-cgp-purple/25 hover:border-cgp-cyan/50 transition-all duration-300 flex flex-col justify-between group bg-cgp-card/90 space-y-6"
               >
                 <div className="space-y-4">
-                  {/* Top Bar */}
                   <div className="flex items-center justify-between">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} p-0.5 shadow-lg shadow-cgp-purple/20`}>
-                      <div className="w-full h-full bg-cgp-card rounded-[10px] flex items-center justify-center text-cgp-cyan">
-                        <IconComp className="w-6 h-6" />
-                      </div>
+                    <div className="w-12 h-12 rounded-2xl bg-cgp-surface border border-cgp-purple/30 flex items-center justify-center text-cgp-cyan group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-xs text-cgp-textMuted font-mono">0{idx + 1}</span>
+                    <span className="text-[11px] font-bold text-cgp-cyan uppercase tracking-wider px-3 py-1 rounded-full bg-cgp-cyan/10 border border-cgp-cyan/20">
+                      {service.category}
+                    </span>
                   </div>
 
-                  {/* Title */}
                   <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-cgp-cyan transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-cgp-cyan transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-xs font-bold text-cgp-cyan mt-0.5">{service.subtitle}</p>
+                    <p className="text-xs font-bold text-slate-400 mt-1">
+                      {service.subtitle}
+                    </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-cgp-textMuted leading-relaxed">
+                  <p className="text-sm text-slate-300 leading-relaxed">
                     {service.description}
                   </p>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {service.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-2.5 py-1 rounded-md text-[10px] font-medium bg-cgp-surface text-slate-300 border border-white/5"
-                      >
-                        #{tag}
-                      </span>
+                  <div className="space-y-2 pt-2 border-t border-slate-800">
+                    {service.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-200">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>{feat}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Bottom Action CTA */}
-                <div className="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
-                  <button
-                    onClick={onOpenAuditModal}
-                    className="text-xs font-bold text-white group-hover:text-cgp-cyan flex items-center gap-1 transition-colors"
-                  >
-                    <span>Get Started</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </button>
-                  <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    Recruiter Ready
-                  </span>
-                </div>
+                <button
+                  onClick={onOpenAuditModal}
+                  className="w-full py-3.5 px-5 rounded-2xl bg-cgp-surface border border-cgp-purple/30 hover:border-cgp-cyan text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 group-hover:bg-gradient-to-r group-hover:from-cgp-cyan group-hover:to-cgp-purple transition-all"
+                >
+                  <span>Get Started with {service.title}</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
               </div>
             );
           })}

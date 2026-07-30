@@ -35,12 +35,6 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Copy & CTAs */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cgp-card/90 border border-cgp-purple/40 text-cgp-cyan text-xs font-bold uppercase tracking-wider shadow-lg backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-cgp-cyan animate-pulse" />
-              <span>AI-Powered Personal Branding</span>
-            </div>
-
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
               We Turn LinkedIn Profiles into{" "}
@@ -65,7 +59,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
                 }`}
               >
                 <Award className="w-4 h-4" />
-                <span>For Students & Freshers</span>
+                <span>For Students</span>
               </button>
               <button
                 onClick={() => setActiveTab("jobseeker")}
@@ -76,7 +70,7 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
                 }`}
               >
                 <Briefcase className="w-4 h-4" />
-                <span>For Job Seekers & Switchers</span>
+                <span>For Job Seekers</span>
               </button>
             </div>
 
@@ -189,8 +183,8 @@ export default function Hero({ onOpenAuditModal }: HeroProps) {
         </div>
       </div>
 
-      {/* Bottom Glowing Particle Wave Canvas */}
-      <div className="relative z-10 pt-4 pb-20">
+      {/* Mobile Background Wave & Desktop Bottom Wave Canvas */}
+      <div className="absolute inset-0 z-0 opacity-80 pointer-events-none sm:relative sm:z-10 sm:pt-4 sm:pb-20 sm:opacity-95">
         <GeminiWaveCanvas />
       </div>
     </section>
