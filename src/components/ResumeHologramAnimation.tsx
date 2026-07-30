@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { Sparkles, ShieldCheck, User } from "lucide-react";
 
-// Static Profiles Array declared outside component to prevent re-allocation & re-renders
-const PROFILES = [
+// Metric States to cycle dynamically every 1.5 seconds
+const DYNAMIC_METRICS = [
   {
     name: "Alex Vance",
     title: "Senior Tech Specialist & Leader",
@@ -14,6 +14,9 @@ const PROFILES = [
     seoMatch: 98,
     atsScore: 96,
     keywordHigher: 380,
+    seoWidth: "98%",
+    atsWidth: "96%",
+    keywordWidth: "92%",
     tags: ["#ExecutiveBranding", "#ATS_Keywords", "#HeadlineSEO", "#ImpactMetrics"],
   },
   {
@@ -25,6 +28,9 @@ const PROFILES = [
     seoMatch: 99,
     atsScore: 98,
     keywordHigher: 450,
+    seoWidth: "99%",
+    atsWidth: "98%",
+    keywordWidth: "97%",
     tags: ["#ProductStrategy", "#LeadershipBrand", "#FAANG_Ready", "#ResumeHook"],
   },
   {
@@ -36,6 +42,9 @@ const PROFILES = [
     seoMatch: 96,
     atsScore: 95,
     keywordHigher: 395,
+    seoWidth: "96%",
+    atsWidth: "95%",
+    keywordWidth: "90%",
     tags: ["#TechArchitect", "#BooleanKeywords", "#StarMethod", "#SalaryBoost"],
   },
   {
@@ -47,27 +56,26 @@ const PROFILES = [
     seoMatch: 97,
     atsScore: 97,
     keywordHigher: 410,
+    seoWidth: "97%",
+    atsWidth: "97%",
+    keywordWidth: "94%",
     tags: ["#ExecutiveProfile", "#RecruiterMagnet", "#HeadlineRank", "#InterviewCall"],
   },
 ];
 
 export default function ResumeHologramAnimation() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [metricIndex, setMetricIndex] = useState(0);
 
+  // Cycle metric values smoothly every 1.5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % PROFILES.length);
-        setIsTransitioning(false);
-      }, 500); // 500ms fade transition
-    }, 4500); // 4.5s cycle interval
+      setMetricIndex((prev) => (prev + 1) % DYNAMIC_METRICS.length);
+    }, 1500); // 1.5s interval
 
     return () => clearInterval(timer);
   }, []);
 
-  const active = PROFILES[currentIndex];
+  const active = DYNAMIC_METRICS[metricIndex];
 
   return (
     <div className="relative w-full max-w-[440px] mx-auto select-none pt-4 sm:pt-0">
@@ -75,13 +83,13 @@ export default function ResumeHologramAnimation() {
       <div className="absolute -inset-4 sm:-inset-6 rounded-full border border-cgp-cyan/20 animate-spin-slow pointer-events-none" />
       <div className="absolute -inset-8 sm:-inset-12 rounded-full border border-cgp-purple/15 animate-reverse-spin pointer-events-none" />
 
-      {/* Floating Top Left Widget: Live Profile Score (Desktop Only) */}
+      {/* Floating Top Left Widget: Dynamic Profile Score (Desktop Only) */}
       <div className="hidden sm:block absolute -top-4 -left-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-purple/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1 animate-float">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Live Profile Score
         </span>
         <div className="flex items-baseline gap-2">
-          <span className={`text-2xl font-black text-white transition-opacity duration-500 ${isTransitioning ? "opacity-30" : "opacity-100"}`}>
+          <span className="text-2xl font-black text-white transition-all duration-700 ease-in-out">
             {active.score}/100
           </span>
           <span className="text-xs text-emerald-400 font-bold flex items-center">
@@ -96,12 +104,12 @@ export default function ResumeHologramAnimation() {
         </div>
       </div>
 
-      {/* Floating Middle Right Widget: Recruiter Views (Desktop Only) */}
+      {/* Floating Middle Right Widget: Dynamic Recruiter Views (Desktop Only) */}
       <div className="hidden sm:block absolute top-1/3 -right-6 z-30 glass-card rounded-2xl p-3.5 border border-cgp-cyan/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Recruiter Views
         </span>
-        <span className={`text-2xl font-black text-cgp-cyan block transition-opacity duration-500 ${isTransitioning ? "opacity-30" : "opacity-100"}`}>
+        <span className="text-2xl font-black text-cgp-cyan block transition-all duration-700 ease-in-out">
           +{active.views}%
         </span>
         {/* Live Animated Bar Chart */}
@@ -112,12 +120,12 @@ export default function ResumeHologramAnimation() {
         </div>
       </div>
 
-      {/* Floating Bottom Right Widget: Interview Calls (Desktop Only) */}
+      {/* Floating Bottom Right Widget: Dynamic Interview Calls (Desktop Only) */}
       <div className="hidden sm:block absolute -bottom-4 -right-4 z-30 glass-card rounded-2xl p-3.5 border border-cgp-pink/40 shadow-2xl backdrop-blur-xl bg-cgp-card/95 space-y-1">
         <span className="text-[10px] text-cgp-textMuted font-bold uppercase tracking-wider block">
           Interview Calls
         </span>
-        <span className={`text-2xl font-black text-cgp-pink block transition-opacity duration-500 ${isTransitioning ? "opacity-30" : "opacity-100"}`}>
+        <span className="text-2xl font-black text-cgp-pink block transition-all duration-700 ease-in-out">
           +{active.calls}%
         </span>
         {/* Wave Sparkline */}
@@ -139,24 +147,20 @@ export default function ResumeHologramAnimation() {
         <div className="sm:hidden grid grid-cols-3 gap-2 pb-3 border-b border-slate-800 text-center relative z-10">
           <div className="p-2 rounded-xl bg-cgp-surface/80 border border-cgp-purple/30">
             <span className="text-[9px] text-cgp-textMuted font-bold block uppercase">Score</span>
-            <span className="text-sm font-black text-emerald-400">{active.score}/100</span>
+            <span className="text-sm font-black text-emerald-400 transition-all duration-700">{active.score}/100</span>
           </div>
           <div className="p-2 rounded-xl bg-cgp-surface/80 border border-cgp-cyan/30">
             <span className="text-[9px] text-cgp-textMuted font-bold block uppercase">Views</span>
-            <span className="text-sm font-black text-cgp-cyan">+{active.views}%</span>
+            <span className="text-sm font-black text-cgp-cyan transition-all duration-700">+{active.views}%</span>
           </div>
           <div className="p-2 rounded-xl bg-cgp-surface/80 border border-cgp-pink/30">
             <span className="text-[9px] text-cgp-textMuted font-bold block uppercase font-mono">Calls</span>
-            <span className="text-sm font-black text-cgp-pink">+{active.calls}%</span>
+            <span className="text-sm font-black text-cgp-pink transition-all duration-700">+{active.calls}%</span>
           </div>
         </div>
 
-        {/* Top Header: Candidate Avatar & Cycling Profile Info */}
-        <div
-          className={`flex items-center gap-3.5 relative z-10 pb-4 border-b border-slate-800 transition-all duration-500 ${
-            isTransitioning ? "opacity-20 translate-y-1" : "opacity-100 translate-y-0"
-          }`}
-        >
+        {/* Top Header: Candidate Avatar & Dynamically Changing Info */}
+        <div className="flex items-center gap-3.5 relative z-10 pb-4 border-b border-slate-800">
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-cgp-surface border-2 border-cgp-cyan/50 flex items-center justify-center p-0.5 shadow-lg shadow-cgp-cyan/20 shrink-0">
             <div className="w-full h-full rounded-xl bg-cgp-card flex items-center justify-center text-cgp-cyan">
               <User className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -169,14 +173,14 @@ export default function ResumeHologramAnimation() {
 
           <div className="space-y-0.5 min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <h4 className="text-sm sm:text-base font-extrabold text-white truncate">
+              <h4 className="text-sm sm:text-base font-extrabold text-white truncate transition-all duration-700">
                 {active.name}
               </h4>
               <span className="px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                 VERIFIED BRAND
               </span>
             </div>
-            <p className="text-xs font-bold text-cgp-cyan truncate">
+            <p className="text-xs font-bold text-cgp-cyan truncate transition-all duration-700">
               {active.title}
             </p>
             <p className="text-[10px] text-cgp-textMuted truncate">
@@ -185,22 +189,20 @@ export default function ResumeHologramAnimation() {
           </div>
         </div>
 
-        {/* Dynamic Glowing Metric Progress Bars (CSS 60fps Transitions) */}
-        <div
-          className={`space-y-4 relative z-10 transition-all duration-500 ${
-            isTransitioning ? "opacity-20 translate-y-1" : "opacity-100 translate-y-0"
-          }`}
-        >
+        {/* Dynamically Morphing Metric Values & Progress Bars Every 1.5 Seconds */}
+        <div className="space-y-4 relative z-10">
           {/* SEO Index Bar */}
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-300 font-medium">LinkedIn Search SEO Index</span>
-              <span className="font-extrabold text-cgp-cyan">{active.seoMatch}% Match</span>
+              <span className="font-extrabold text-cgp-cyan transition-all duration-700 ease-in-out">
+                {active.seoMatch}% Match
+              </span>
             </div>
             <div className="w-full h-2 rounded-full bg-cgp-surface overflow-hidden p-0.5 border border-cgp-cyan/20">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-cgp-cyan to-cgp-blue shadow-[0_0_12px_#38bdf8] transition-all duration-700 ease-out"
-                style={{ width: `${active.seoMatch}%` }}
+                className="h-full rounded-full bg-gradient-to-r from-cgp-cyan to-cgp-blue shadow-[0_0_12px_#38bdf8] transition-all duration-700 ease-in-out"
+                style={{ width: active.seoWidth }}
               />
             </div>
           </div>
@@ -209,12 +211,14 @@ export default function ResumeHologramAnimation() {
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-300 font-medium">ATS Resume Format Alignment</span>
-              <span className="font-extrabold text-cgp-purple">{active.atsScore}% Score</span>
+              <span className="font-extrabold text-cgp-purple transition-all duration-700 ease-in-out">
+                {active.atsScore}% Score
+              </span>
             </div>
             <div className="w-full h-2 rounded-full bg-cgp-surface overflow-hidden p-0.5 border border-cgp-purple/20">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-cgp-purple to-cgp-pink shadow-[0_0_12px_#8b5cf6] transition-all duration-700 ease-out"
-                style={{ width: `${active.atsScore}%` }}
+                className="h-full rounded-full bg-gradient-to-r from-cgp-purple to-cgp-pink shadow-[0_0_12px_#8b5cf6] transition-all duration-700 ease-in-out"
+                style={{ width: active.atsWidth }}
               />
             </div>
           </div>
@@ -223,27 +227,25 @@ export default function ResumeHologramAnimation() {
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-300 font-medium">Recruiter Keyword Hooks</span>
-              <span className="font-extrabold text-emerald-400">+{active.keywordHigher}% Higher</span>
+              <span className="font-extrabold text-emerald-400 transition-all duration-700 ease-in-out">
+                +{active.keywordHigher}% Higher
+              </span>
             </div>
             <div className="w-full h-2 rounded-full bg-cgp-surface overflow-hidden p-0.5 border border-emerald-500/20">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-cgp-cyan shadow-[0_0_12px_#34d399] transition-all duration-700 ease-out"
-                style={{ width: "95%" }}
+                className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-cgp-cyan shadow-[0_0_12px_#34d399] transition-all duration-700 ease-in-out"
+                style={{ width: active.keywordWidth }}
               />
             </div>
           </div>
         </div>
 
-        {/* Dynamic Skill Tags */}
-        <div
-          className={`flex flex-wrap gap-1.5 pt-2 relative z-10 transition-all duration-500 ${
-            isTransitioning ? "opacity-20 translate-y-1" : "opacity-100 translate-y-0"
-          }`}
-        >
+        {/* Dynamically Changing Skill Tags */}
+        <div className="flex flex-wrap gap-1.5 pt-2 relative z-10">
           {active.tags.map((tag, tIdx) => (
             <span
               key={tIdx}
-              className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-cgp-surface/90 text-cgp-cyan border border-cgp-cyan/30 flex items-center gap-1 shadow-sm"
+              className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-cgp-surface/90 text-cgp-cyan border border-cgp-cyan/30 flex items-center gap-1 shadow-sm transition-all duration-700"
             >
               <Sparkles className="w-3 h-3 text-cgp-cyan animate-pulse" />
               {tag}
